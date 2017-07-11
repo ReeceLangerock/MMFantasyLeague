@@ -1,0 +1,179 @@
+{
+  "award": [
+    {
+      "awardName": "Champion",
+      "season": [
+        {
+          "year": 2012,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2013,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2014,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2015,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2016,
+          "user": "",
+          "payout": 0
+        }
+      ]
+    },
+    {
+      "awardName": "First Runner Up",
+      "season": [
+        {
+          "year": 2012,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2013,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2014,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2015,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2016,
+          "user": "",
+          "payout": 0
+        }
+      ]
+    },
+    {
+      "awardName": "Second Runner Up",
+      "season": [
+        {
+          "year": 2012,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2013,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2014,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2015,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2016,
+          "user": "",
+          "payout": 0
+        }
+      ]
+    },
+    {
+      "awardName": "Points Champion",
+      "season": [
+        {
+          "year": 2012,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2013,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2014,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2015,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2016,
+          "user": "",
+          "payout": 0
+        }
+      ]
+    },
+    {
+      "awardName": "Consolation Bracket Champion",
+      "season": [
+        {
+          "year": 2012,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2013,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2014,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2015,
+          "user": "",
+          "payout": 0
+        },
+        {
+          "year": 2016,
+          "user": "",
+          "payout": 0
+        }
+      ]
+    },
+    {
+      "awardName": "Longwell Cup",
+      "season": [
+        {
+          "year": 2012,
+          "user": "Dave Longwell"
+        },
+        {
+          "year": 2013,
+          "user": ""
+        },
+        {
+          "year": 2014,
+          "user": ""
+        },
+        {
+          "year": 2015,
+          "user": ""
+        },
+        {
+          "year": 2016,
+          "user": ""
+        }
+      ]
+    }
+  ]
+}

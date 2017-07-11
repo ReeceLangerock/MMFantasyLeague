@@ -1,8 +1,9 @@
+import awardData from './../data/awardData.json'
+
 export const INCREMENT_REQUESTED = "counter/INCREMENT_REQUESTED";
 export const INCREMENT = "counter/INCREMENT";
 export const DECREMENT_REQUESTED = "counter/DECREMENT_REQUESTED";
 export const DECREMENT = "counter/DECREMENT";
-
 //REDUCERS
 //----------------
 const initialState = {
@@ -10,11 +11,11 @@ const initialState = {
   isIncrementing: false,
   isDecrementing: false,
   season: 0,
-  statistics: "highest-score"
+  statistics: "highestScore"
 };
 
 export var seasonStatsReducer = (
-  state = {season: 0, statistics: "highest-score"},
+  state = {season: 0, statistics: "highestScore"},
   action
 ) => {
   switch (action.type) {
@@ -22,6 +23,29 @@ export var seasonStatsReducer = (
       return {...state, season: action.season };
     case "UPDATE_LEAGUE_STATISTICS":
       return {...state, statistics: action.stat };
+    default:
+      return state;
+  }
+};
+
+export var awardDataReducer = (state = awardData, action) => {
+  switch(action.type){
+  default: return state;
+  }
+
+};
+
+export var seasonStatsGenerationReducer = (
+  state = {isGenerating: false, data: {}},
+  action
+) => {
+  switch (action.type) {
+    case "TOGGLE_ISGENERATING_LEAGUE_STATISTICS":
+      return {...state, isGenerating: !state.isGenerating}
+
+  case "GENERATE_LEAGUE_STATISTICS":
+      return {...state, data: action.data}
+
     default:
       return state;
   }
