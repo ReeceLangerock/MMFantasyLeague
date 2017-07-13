@@ -7,9 +7,9 @@ import Trophy from "./Trophy";
 export class TrophyRoom extends React.Component {
   renderTrophies() {
     if (this.props.awardData) {
-      var awardName = this.props.awardData.award[5].awardName
-      var awardNum = 5
-      return this.props.awardData.award[awardNum].season.map(award => {
+      console.log(this.props.awardData.Champion.season)
+      var awardName = "Champion";
+      return this.props.awardData[awardName].season.map(award => {
         return (
           <Trophy key = {award.year} awardName = {awardName} year = {award.year} user = {award.user}/>
         );
@@ -31,7 +31,7 @@ export class TrophyRoom extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  awardData: state.awardDataReducer
+  awardData: state.awardDataReducer.awards
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);

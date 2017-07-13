@@ -1,5 +1,6 @@
-//import data from './data.json'
+
 var data = require('./data.json')
+const NUM_SEASONS = 5;
 var highestScore = [
   {
     data: [
@@ -345,6 +346,351 @@ var bestLosses = [
 
 module.exports = {
 
+  clear(){
+    highestScore = highestScore = [
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 0,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 0,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 0,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 0,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 0,
+            week: ""
+
+          }
+        ]
+      }
+    ];
+    lowestScore = lowestScore = [
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 1000,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 1000,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 1000,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 1000,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 1000,
+            week: ""
+
+          }
+        ]
+      }
+    ];
+    largestMargin = largestMargin = [
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            margin: 0,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            margin: 0,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            margin: 0,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            margin: 0,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            margin: 0,
+            week: ""
+
+          }
+        ]
+      }
+    ];
+    smallestMargin = smallestMargin = [
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            margin: 1000,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            margin: 1000,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            margin: 1000,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            margin: 1000,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            margin: 1000,
+            week: ""
+
+          }
+        ]
+      }
+    ];
+    worstWins = worstWins = [
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 1000,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 1000,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 1000,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 1000,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 1000,
+            week: ""
+
+          }
+        ]
+      }
+    ];
+    bestLosses = bestLosses = [
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 0,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 0,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 0,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 0,
+            week: ""
+
+          }
+        ]
+      },
+      {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 0,
+            week: ""
+
+          }
+        ]
+      }
+    ];
+  },
+
   calculateLargestMargins(weekData, season, user, regularOrPlayoffs) {
     var lowestIndex = 0;
     var lowestMargin = 1000;
@@ -518,8 +864,9 @@ module.exports = {
 
   run(includeRegularSeason, includePlayoffs) {
     var that = this;
+    that.clear();
     return new Promise(function (resolve, reject) {
-  
+
     var uI = 0; //userIndex
     var sI = 0; //seasonIndex
     var rI = 0; //regularSeasonWeekIndex

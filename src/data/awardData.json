@@ -1,157 +1,208 @@
 {
-  "award": [
-    {
-      "awardName": "Champion",
+  "awards": {
+    "Champion": {
       "season": [
         {
           "year": 2012,
-          "user": "",
+          "user": "Ryan Coxe",
+          "payout": 500
+        },
+        {
+          "year": 2013,
+          "user": "JD Langefeld",
+          "payout": 500
+        },
+        {
+          "year": 2014,
+          "user": "Kevin Dobkin",
+          "payout": 500
+        },
+        {
+          "year": 2015,
+          "user": "Ryan Coxe",
+          "payout": 550
+        },
+        {
+          "year": 2016,
+          "user": "Alex Warner",
+          "payout": 550
+        }
+      ]
+    },
+    "Runner-Up": {
+      "season": [
+        {
+          "year": 2012,
+          "user": "Trey Ward",
+          "payout": 200
+        },
+        {
+          "year": 2013,
+          "user": "Sean Quill",
+          "payout": 200
+        },
+        {
+          "year": 2014,
+          "user": "Jimmy Ouska",
+          "payout": 200
+        },
+        {
+          "year": 2015,
+          "user": "Jimmy Ouska",
+          "payout": 225
+        },
+        {
+          "year": 2016,
+          "user": "JD Langefeld",
+          "payout": 225
+        }
+      ]
+    },
+    "Second Runner-Up": {
+      "season": [
+        {
+          "year": 2012,
+          "user": "Bryan Steger",
+          "payout": 150
+        },
+        {
+          "year": 2013,
+          "user": "Reece Langerock",
+          "payout": 150
+        },
+        {
+          "year": 2014,
+          "user": "Matt Reschke",
+          "payout": 150
+        },
+        {
+          "year": 2015,
+          "user": "Sean Quill",
+          "payout": 150
+        },
+        {
+          "year": 2016,
+          "user": "Matt Reschke",
+          "payout": 150
+        }
+      ]
+    },
+    "Points Winner": {
+      "season": [
+        {
+          "year": 2012,
+          "user": "Bryan Steger",
+          "points": 1452.6,
           "payout": 0
         },
         {
           "year": 2013,
-          "user": "",
+          "user": "Reece Langerock",
+          "points": 1862.8,
           "payout": 0
         },
         {
           "year": 2014,
-          "user": "",
+          "user": "JD Langefeld",
+          "points": 1676.3,
           "payout": 0
         },
         {
           "year": 2015,
-          "user": "",
-          "payout": 0
+          "user": "Sean Quill",
+          "points": 1740.9,
+          "payout": 175
         },
         {
           "year": 2016,
-          "user": "",
-          "payout": 0
+          "user": "Matt Reschke",
+          "points": 1718.4,
+          "payout": 175
         }
       ]
     },
-    {
-      "awardName": "First Runner Up",
+    "Regular Season Winner": {
+      "season": [
+        {
+          "year": 2012,
+          "user": "Bryan Steger",
+          "record": "9-4",
+          "payout": 250
+        },
+        {
+          "year": 2013,
+          "user": "Reece Langerock",
+          "record": "10-3",
+          "payout": 250
+        },
+        {
+          "year": 2014,
+          "user": "Kevin Dobkin",
+          "record": "11-2",
+          "payout": 250
+        },
+        {
+          "year": 2015,
+          "user": "Ryan Coxe",
+          "record": "10-3",
+          "payout": 275
+        },
+        {
+          "year": 2016,
+          "user": "Matt Reschke",
+          "record": "9-4",
+          "payout": 275
+        }
+      ]
+    },
+    "Regular Season Runner-up": {
       "season": [
         {
           "year": 2012,
           "user": "",
-          "payout": 0
+          "record": "",
+          "payout": 100
         },
         {
           "year": 2013,
           "user": "",
-          "payout": 0
+          "record": "",
+          "payout": 100
         },
         {
           "year": 2014,
           "user": "",
-          "payout": 0
-        },
-        {
-          "year": 2015,
-          "user": "",
-          "payout": 0
-        },
-        {
-          "year": 2016,
-          "user": "",
-          "payout": 0
+          "record": "",
+          "payout": 100
         }
+
       ]
     },
-    {
-      "awardName": "Second Runner Up",
+    "Consolation Bracket Champion": {
       "season": [
         {
           "year": 2012,
-          "user": "",
-          "payout": 0
+          "user": "Reece Langerock"
         },
         {
           "year": 2013,
-          "user": "",
-          "payout": 0
+          "user": "Mike Unverricht"
         },
         {
           "year": 2014,
-          "user": "",
-          "payout": 0
+          "user": "Alex Warner"
         },
         {
           "year": 2015,
-          "user": "",
-          "payout": 0
+          "user": ""
         },
         {
           "year": 2016,
-          "user": "",
-          "payout": 0
+          "user": ""
         }
       ]
     },
-    {
-      "awardName": "Points Champion",
-      "season": [
-        {
-          "year": 2012,
-          "user": "",
-          "payout": 0
-        },
-        {
-          "year": 2013,
-          "user": "",
-          "payout": 0
-        },
-        {
-          "year": 2014,
-          "user": "",
-          "payout": 0
-        },
-        {
-          "year": 2015,
-          "user": "",
-          "payout": 0
-        },
-        {
-          "year": 2016,
-          "user": "",
-          "payout": 0
-        }
-      ]
-    },
-    {
-      "awardName": "Consolation Bracket Champion",
-      "season": [
-        {
-          "year": 2012,
-          "user": "",
-          "payout": 0
-        },
-        {
-          "year": 2013,
-          "user": "",
-          "payout": 0
-        },
-        {
-          "year": 2014,
-          "user": "",
-          "payout": 0
-        },
-        {
-          "year": 2015,
-          "user": "",
-          "payout": 0
-        },
-        {
-          "year": 2016,
-          "user": "",
-          "payout": 0
-        }
-      ]
-    },
-    {
-      "awardName": "Longwell Cup",
+    "Longwell Award Winner": {
       "season": [
         {
           "year": 2012,
@@ -159,11 +210,11 @@
         },
         {
           "year": 2013,
-          "user": ""
+          "user": "Matt Reschke"
         },
         {
           "year": 2014,
-          "user": ""
+          "user": "Sean Quill"
         },
         {
           "year": 2015,
@@ -174,6 +225,134 @@
           "user": ""
         }
       ]
+    },
+    "Playoff Points Champion": {
+      "season": [
+        {
+          "year": 2015,
+          "user": "",
+          "points": 0,
+          "payout": 100
+        },
+        {
+          "year": 2016,
+          "user": "Matt Reschke",
+          "points": 421.1,
+          "payout": 100
+        }
+      ]
+    },
+    "Weekly Points Champion": {
+      "season": [
+        {
+          "year": 2015,
+          "users": [
+            {
+              "user-name": "Ryan Coxe",
+              "wins": 3,
+              "total-payout": 75
+            },{
+              "user-name": "Kevin Dobkin",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Jason Knaak",
+              "wins": 5,
+              "total-payout": 125
+            },{
+              "user-name": "JD Langefeld",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Reece Langerock",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Jimmy Ouska",
+              "wins": 2,
+              "total-payout": 50
+            },{
+              "user-name": "Sean Quill",
+              "wins": 3,
+              "total-payout": 75
+            },{
+              "user-name": "Matt Reschke",
+              "wins": 1,
+              "total-payout": 25
+            },{
+              "user-name": "Bryan Steger",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Mike Unverricht",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Trey Ward",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Alex Warner",
+              "wins": 0,
+              "total-payout": 0
+            }
+          ]
+        },
+        {
+          "year": 2016,
+          "users": [
+            {
+              "user-name": "Ryan Coxe",
+              "wins": 1,
+              "total-payout": 25
+            },{
+              "user-name": "Kevin Dobkin",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Jason Knaak",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "JD Langefeld",
+              "wins": 1,
+              "total-payout": 25
+            },{
+              "user-name": "Reece Langerock",
+              "wins": 1,
+              "total-payout": 25
+            },{
+              "user-name": "Jimmy Ouska",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Sean Quill",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Matt Reschke",
+              "wins": 5,
+              "total-payout": 125
+            },{
+              "user-name": "Bryan Steger",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Mike Unverricht",
+              "wins": 2,
+              "total-payout": 50
+            },{
+              "user-name": "Trey Ward",
+              "wins": 1,
+              "total-payout": 25
+            },{
+              "user-name": "Alex Warner",
+              "wins": 2,
+              "total-payout": 50
+            }
+          ]
+        }
+      ]
     }
-  ]
+  }
 }

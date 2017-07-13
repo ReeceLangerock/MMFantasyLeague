@@ -2,7 +2,7 @@ import React from "react";
 import * as Redux from "react-redux";
 import { connect } from "react-redux";
 import data from "./../../data/data.json";
-// import dataHandler from "./../../data/dataHandler.js";
+import userDataHandler from "./../../data/userDataHandler.js";
 import * as actions from "./../../actions/actions.js";
 import { bindActionCreators } from "redux";
 import { DropdownButton, MenuItem } from "react-bootstrap";
@@ -10,7 +10,7 @@ import {generateLeagueStatistics, isGeneratingLeagueStatistics, updateLeagueStat
 
 //import BarChart from './../charts/BarChart.js'
 
-export class Stats extends React.Component {
+export class UserStats extends React.Component {
   constructor(props) {
     super(props);
     this.handleSeasonSelection = this.handleSeasonSelection.bind(this);
@@ -138,7 +138,7 @@ export class Stats extends React.Component {
   }, dispatch)
 
   var t0 = performance.now();
-  //dataHandler.run();
+  userDataHandler.run(true, true);
   var t1 = performance.now();
   console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
-  export default connect(mapStateToProps, mapDispatchToProps)(Stats);
+  export default connect(mapStateToProps, mapDispatchToProps)(UserStats);
