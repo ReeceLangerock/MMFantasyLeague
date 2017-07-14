@@ -1,5 +1,4 @@
 import React from "react";
-import * as Redux from "react-redux";
 import { connect } from "react-redux";
 import data from "./../../data/data.json";
 import userDataHandler from "./../../data/userDataHandler.js";
@@ -73,7 +72,7 @@ export class UserStats extends React.Component {
             <div className="row">
               <div className="col-md-12">
                 <h1>
-                  Stats
+                  User Statistics
                 </h1>
                 <p>
                 {this.props.isGenerating}
@@ -138,7 +137,7 @@ export class UserStats extends React.Component {
   }, dispatch)
 
   var t0 = performance.now();
-  userDataHandler.run(true, true);
+  //userDataHandler.run(true, true);
   var t1 = performance.now();
   console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
   export default connect(mapStateToProps, mapDispatchToProps)(UserStats);

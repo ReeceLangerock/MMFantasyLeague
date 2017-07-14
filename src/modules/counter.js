@@ -28,8 +28,10 @@ export var seasonStatsReducer = (
   }
 };
 
-export var awardDataReducer = (state = awardData, action) => {
+export var awardDataReducer = (state = {awardData, trophy: "Champion"}, action) => {
   switch(action.type){
+    case "UPDATE_TROPHY":
+    return {...state, trophy: action.trophy}
   default: return state;
   }
 

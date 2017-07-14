@@ -1,6 +1,4 @@
 import React from "react";
-import * as Redux from "react-redux";
-import { connect } from "react-redux";
 import data from "./../../data/data.json";
 // import dataHandler from "./../../data/dataHandler.js";
 import * as actions from "./../../actions/actions.js";
@@ -73,7 +71,7 @@ export class LeagueStats extends React.Component {
             <div className="row">
               <div className="col-md-12">
                 <h1>
-                  Stats
+                  League Statistics
                 </h1>
                 <p>
                 {this.props.isGenerating}

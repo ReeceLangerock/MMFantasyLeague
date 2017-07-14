@@ -1,5 +1,5 @@
 import dataHandler from './../data/dataHandler.js'
-
+import awardData from './../data/awardData.json'
 
 export var updateLeagueSeason = season => {
   return {
@@ -13,6 +13,13 @@ export var updateLeagueStatistics = stat => {
   return {
     type: "UPDATE_LEAGUE_STATISTICS",
     stat
+  };
+};
+
+export var updateTrophy = trophy => {
+  return {
+    type: "UPDATE_TROPHY",
+    trophy
   };
 };
 export var generateLeagueStatistics = (includeRegularSeason, includePlayoffs) => {
