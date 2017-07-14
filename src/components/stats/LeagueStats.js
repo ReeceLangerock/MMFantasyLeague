@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import data from "./../../data/data.json";
 // import dataHandler from "./../../data/dataHandler.js";
 import * as actions from "./../../actions/actions.js";
