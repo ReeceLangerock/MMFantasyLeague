@@ -1,4 +1,5 @@
 import dataHandler from './../data/dataHandler.js'
+import userDataHandler from './../data/userDataHandler.js'
 import awardData from './../data/awardData.json'
 
 export var updateLeagueSeason = season => {
@@ -25,7 +26,6 @@ export var updateTrophy = trophy => {
 export var generateLeagueStatistics = (includeRegularSeason, includePlayoffs) => {
   return (dispatch) => {
   dispatch(isGeneratingLeagueStatistics())
-  console.log(includePlayoffs)
   dataHandler.run(includeRegularSeason, includePlayoffs).then((data) => {
     dispatch ({
       type: "GENERATE_LEAGUE_STATISTICS",
@@ -35,6 +35,35 @@ export var generateLeagueStatistics = (includeRegularSeason, includePlayoffs) =>
     })
 
  }
+};
+
+export var generateUserStatistics = (includeRegularSeason, includePlayoffs) => {
+  return (dispatch) => {
+  dispatch(isGeneratingUserStatistics())
+
+  userDataHandler.run(includeRegularSeason, includePlayoffs).then((data) => {
+    dispatch ({
+      type: "GENERATE_USER_STATISTICS",
+      data
+    });
+    (dispatch(isGeneratingUserStatistics()));
+    })
+
+ }
+};
+
+export var updateUserStatistics = stat => {
+  return {
+    type: "UPDATE_USER_STATISTICS",
+    stat
+  };
+};
+
+
+export var isGeneratingUserStatistics = () => {
+  return {
+    type: "TOGGLE_ISGENERATING_USER_STATISTICS"
+  };
 };
 
 export var startLeagueStatGeneration=() =>{}

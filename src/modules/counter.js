@@ -53,6 +53,35 @@ export var seasonStatsGenerationReducer = (
   }
 };
 
+export var userStatsGenerationReducer = (
+  state = {isGenerating: false, data: {}},
+  action
+) => {
+  switch (action.type) {
+    case "TOGGLE_ISGENERATING_USER_STATISTICS":
+      return {...state, isGenerating: !state.isGenerating}
+
+  case "GENERATE_USER_STATISTICS":
+      return {...state, data: action.data}
+
+    default:
+      return state;
+  }
+};
+
+export var userStatsReducer = (
+  state = {statistics: "wins"},
+  action
+) => {
+  switch (action.type) {
+
+    case "UPDATE_USER_STATISTICS":
+      return {...state, statistics: action.stat };
+    default:
+      return state;
+  }
+};
+
 export var counter = (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT_REQUESTED:

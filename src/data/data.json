@@ -211,10 +211,10 @@
             "year": 2014,
             "regular season": [
                {
-                  "week-number": 136.3,
-                  "points-scored": 95.9,
-                  "points-allowed": "Reece Langerock",
-                  "opponent": "Alex Warner"
+                  "week-number": 0,
+                  "points-scored": 136.3,
+                  "points-allowed": 95.9,
+                  "opponent": "Reece Langerock"
                },
                {
                   "week-number": 2,
@@ -833,10 +833,10 @@
             "year": 2014,
             "regular season": [
                {
-                  "week-number": 97.1,
-                  "points-scored": 133.9,
-                  "points-allowed": "Trey Ward",
-                  "opponent": "Alex Warner"
+                  "week-number": 0,
+                  "points-scored": 97.1,
+                  "points-allowed": 133.9,
+                  "opponent": "Trey Ward"
                },
                {
                   "week-number": 2,
@@ -1455,10 +1455,10 @@
             "year": 2014,
             "regular season": [
                {
-                  "week-number": 96.2,
-                  "points-scored": 129.3,
-                  "points-allowed": "Ryan Coxe",
-                  "opponent": "Alex Warner"
+                  "week-number": 0,
+                  "points-scored": 96.2,
+                  "points-allowed": 129.3,
+                  "opponent": "Ryan Coxe"
                },
                {
                   "week-number": 2,
@@ -1865,7 +1865,7 @@
          }
       ]
    },{
-   "name": "JD Langfeld",
+   "name": "JD Langefeld",
       "season": [
          {
             "year": 2012,
@@ -2077,10 +2077,10 @@
             "year": 2014,
             "regular season": [
                {
-                  "week-number": 108.9,
-                  "points-scored": 118.2,
-                  "points-allowed": "Kevin Dobkin",
-                  "opponent": "Alex Warner"
+                  "week-number": 0,
+                  "points-scored": 108.9,
+                  "points-allowed": 118.2,
+                  "opponent": "Kevin Dobkin"
                },
                {
                   "week-number": 2,
@@ -2699,10 +2699,10 @@
             "year": 2014,
             "regular season": [
                {
-                  "week-number": 155.4,
-                  "points-scored": 117.4,
-                  "points-allowed": "Mike Unverricht",
-                  "opponent": "Alex Warner"
+                  "week-number": 0,
+                  "points-scored": 155.4,
+                  "points-allowed": 117.4,
+                  "opponent": "Mike Unverricht"
                },
                {
                   "week-number": 2,
@@ -3321,10 +3321,10 @@
             "year": 2014,
             "regular season": [
                {
-                  "week-number": 118.2,
-                  "points-scored": 108.9,
-                  "points-allowed": "JD Langefeld",
-                  "opponent": "Alex Warner"
+                  "week-number": 0,
+                  "points-scored": 118.2,
+                  "points-allowed": 108.9,
+                  "opponent": "JD Langefeld"
                },
                {
                   "week-number": 2,
@@ -3943,10 +3943,10 @@
             "year": 2014,
             "regular season": [
                {
-                  "week-number": 117.3,
-                  "points-scored": 116.2,
-                  "points-allowed": "Sean Quill",
-                  "opponent": "Alex Warner"
+                  "week-number": 0,
+                  "points-scored": 117.3,
+                  "points-allowed": 116.2,
+                  "opponent": "Sean Quill"
                },
                {
                   "week-number": 2,
@@ -4565,10 +4565,10 @@
             "year": 2014,
             "regular season": [
                {
-                  "week-number": 117.4,
-                  "points-scored": 155.4,
-                  "points-allowed": "Jimmy Ouska",
-                  "opponent": "Alex Warner"
+                  "week-number": 0,
+                  "points-scored": 117.4,
+                  "points-allowed": 155.4,
+                  "opponent": "Jimmy Ouska"
                },
                {
                   "week-number": 2,
@@ -5187,9 +5187,9 @@
             "year": 2014,
             "regular season": [
                {
-                  "week-number": 95.9,
-                  "points-scored": 136.3,
-                  "points-allowed": "Alex Warner",
+                  "week-number": 0,
+                  "points-scored": 95.9,
+                  "points-allowed": 136.3,
                   "opponent": "Alex Warner"
                },
                {
@@ -5809,10 +5809,10 @@
             "year": 2014,
             "regular season": [
                {
-                  "week-number": 129.3,
-                  "points-scored": 96.2,
-                  "points-allowed": "Jason Knaak",
-                  "opponent": "Alex Warner"
+                  "week-number": 0,
+                  "points-scored": 129.3,
+                  "points-allowed": 96.2,
+                  "opponent": "Jason Knaak"
                },
                {
                   "week-number": 2,
@@ -6431,10 +6431,10 @@
             "year": 2014,
             "regular season": [
                {
-                  "week-number": 116.2,
-                  "points-scored": 117.3,
-                  "points-allowed": "Matt Reschke",
-                  "opponent": "Alex Warner"
+                  "week-number": 0,
+                  "points-scored": 116.2,
+                  "points-allowed": 117.3,
+                  "opponent": "Matt Reschke"
                },
                {
                   "week-number": 2,
@@ -7053,10 +7053,10 @@
             "year": 2014,
             "regular season": [
                {
-                  "week-number": 133.9,
-                  "points-scored": 97.1,
-                  "points-allowed": "Bryan Steger",
-                  "opponent": "Alex Warner"
+                  "week-number": 0,
+                  "points-scored": 133.9,
+                  "points-allowed": 97.1,
+                  "opponent": "Bryan Steger"
                },
                {
                   "week-number": 2,
@@ -7677,7 +7677,7 @@
                {
                   "week-number": null,
                   "points-scored": null,
-                  "points-allowed": "",
+                  "points-allowed": null,
                   "opponent": ""
                },
                {

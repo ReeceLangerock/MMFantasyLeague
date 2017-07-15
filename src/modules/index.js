@@ -4,7 +4,10 @@ import {
   counter,
   seasonStatsReducer,
   seasonStatsGenerationReducer,
-  awardDataReducer
+  awardDataReducer,
+  userStatsGenerationReducer,
+  userStatsReducer
+
 } from "./counter";
 
 export default combineReducers({
@@ -12,5 +15,7 @@ export default combineReducers({
   counter,
   seasonStatsReducer,
   seasonStatsGenerationReducer,
+  userStatsGenerationReducer,
+  userStatsReducer,
   awardDataReducer
 });

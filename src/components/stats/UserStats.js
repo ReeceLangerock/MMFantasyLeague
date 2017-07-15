@@ -5,27 +5,23 @@ import userDataHandler from "./../../data/userDataHandler.js";
 import * as actions from "./../../actions/actions.js";
 import { bindActionCreators } from "redux";
 import { DropdownButton, MenuItem } from "react-bootstrap";
-import {generateLeagueStatistics, isGeneratingLeagueStatistics, updateLeagueStatistics, updateLeagueSeason} from '../../actions/actions'
+import {generateUserStatistics, isGeneratingLeagueStatistics, updateUserStatistics} from '../../actions/actions'
 
 //import BarChart from './../charts/BarChart.js'
 
 export class UserStats extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSeasonSelection = this.handleSeasonSelection.bind(this);
       this.handleStatSelection = this.handleStatSelection.bind(this);
   }
   componentWillMount() {
-   this.props.generateLeagueStatistics(true, true)
+   this.props.generateUserStatistics(true, false)
   }
-  handleSeasonSelection(e) {
-  this.props.updateLeagueSeason(e)
-  //this.props.generateLeagueStatistics()
 
-  }
 
   handleStatSelection(e) {
-    this.props.updateLeagueStatistics(e)
+    console.log(e)
+    this.props.updateUserStatistics(e)
 
   }
 
@@ -38,24 +34,25 @@ export class UserStats extends React.Component {
   renderData = () => {
 
     var statToRender = this.props.stats;
-    var seasonToRender = this.props.season;
     var d = this.props.renderData;
 
       if(d.completed){
+        console.log(Object.keys(d.users.users))
         var dataToRender ={data: []};
-        if(seasonToRender === 'all') {
-          for(let i=0; i < d[statToRender].length; i++){
-            for(let j =0; j < d[statToRender][i].data.length; j++) {
-          dataToRender.data.push(d[statToRender][i].data[j])
-        }
-        }
-      }else {
-        dataToRender = d[statToRender][seasonToRender]
-      }
+      //   if(seasonToRender === 'all') {
+      //     for(let i=0; i < d[statToRender].length; i++){
+      //       for(let j =0; j < d[statToRender][i].data.length; j++) {
+      //     dataToRender.data.push(d[statToRender][i].data[j])
+      //   }
+      //   }
+      // }else {
+      //   dataToRender = d[statToRender][seasonToRender]
+      // }
     dataToRender.data.sort()
-  return  dataToRender.data.map((dataEntry) => {
+  return  Object.keys(d.users.users).map((user) => {
 
-      return <h1 key = {dataEntry.score}>{dataEntry.user} / {dataEntry.score}{dataEntry.margin}</h1>
+
+      return <h1 key = {user}>{user} - {d.users.users[user][statToRender]}</h1>
     });
     } else {
       return <p>Nothing To REnder</p>
@@ -77,28 +74,20 @@ export class UserStats extends React.Component {
                 <p>
                 {this.props.isGenerating}
                 </p>
-                <h2>Currently viewing {this.props.stats} from the {this.props.season}</h2>
+                <h2>Currently viewing {this.props.stats} for all users</h2>
               </div>
 
             </div>
             <div className="row">
               <div className="col-md-12">
-                <DropdownButton id = '1' title="Season" bsStyle="default">
-                  <MenuItem eventKey="all" onSelect={this.handleSeasonSelection}>All Time</MenuItem>
-                  <MenuItem divider />
-                  <MenuItem eventKey="4" onSelect={this.handleSeasonSelection}>2016 Season</MenuItem>
-                  <MenuItem eventKey="3" onSelect={this.handleSeasonSelection}>2015 Season</MenuItem>
-                  <MenuItem eventKey="2" onSelect={this.handleSeasonSelection}>2014 Season</MenuItem>
-                  <MenuItem eventKey="1" onSelect={this.handleSeasonSelection}>2013 Season</MenuItem>
-                  <MenuItem eventKey="0" onSelect={this.handleSeasonSelection}>2012 Season</MenuItem>
-                </DropdownButton>
+
                 <DropdownButton id = '2'  title="Statistic" bsStyle="default">
-                  <MenuItem eventKey="highestScore" onSelect={this.handleStatSelection}>Highest Points</MenuItem>
-                  <MenuItem eventKey="lowestScore" onSelect={this.handleStatSelection}>Lowest Points</MenuItem>
-                  <MenuItem eventKey="largestMargin" onSelect={this.handleStatSelection}>Largest Margins</MenuItem>
-                  <MenuItem eventKey="smallestMargin" onSelect={this.handleStatSelection}>Smallest Margins</MenuItem>
-                  <MenuItem eventKey="worstWins" onSelect={this.handleStatSelection}>Worst Wins</MenuItem>
-                  <MenuItem eventKey="bestLosses" onSelect={this.handleStatSelection}>Best Losses</MenuItem>
+                  <MenuItem eventKey="wins" onSelect={this.handleStatSelection}>Wins</MenuItem>
+                  <MenuItem eventKey="losses" onSelect={this.handleStatSelection}>Losses</MenuItem>
+                  <MenuItem eventKey="total-points-scored" onSelect={this.handleStatSelection}>Total Points Scored</MenuItem>
+                  <MenuItem eventKey="total-points-allowed" onSelect={this.handleStatSelection}>Total Points Allowed</MenuItem>
+                  <MenuItem eventKey="high-score" onSelect={this.handleStatSelection}>High Score</MenuItem>
+                  <MenuItem eventKey="low-score" onSelect={this.handleStatSelection}>Low Score</MenuItem>
                 </DropdownButton>
               </div>
 
@@ -126,18 +115,17 @@ export class UserStats extends React.Component {
 
 
   const mapStateToProps = state => ({
-    season: state.seasonStatsReducer.season,
-    stats: state.seasonStatsReducer.statistics,
-    renderData: state.seasonStatsGenerationReducer.data,
+    stats: state.userStatsReducer.statistics,
+    renderData: state.userStatsGenerationReducer.data,
     isGenerating: state.seasonStatsGenerationReducer.isGenerating
   })
 
   const mapDispatchToProps = dispatch => bindActionCreators({
-    generateLeagueStatistics, isGeneratingLeagueStatistics, updateLeagueSeason, updateLeagueStatistics
+    generateUserStatistics, isGeneratingLeagueStatistics, updateUserStatistics
   }, dispatch)
 
   var t0 = performance.now();
-  //userDataHandler.run(true, true);
+
   var t1 = performance.now();
   console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
   export default connect(mapStateToProps, mapDispatchToProps)(UserStats);
