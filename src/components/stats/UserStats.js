@@ -4,7 +4,7 @@ import data from "./../../data/data.json";
 import userDataHandler from "./../../data/userDataHandler.js";
 import * as actions from "./../../actions/actions.js";
 import { bindActionCreators } from "redux";
-import { DropdownButton, MenuItem } from "react-bootstrap";
+import { DropdownButton, MenuItem, Button, Accordion, Panel } from "react-bootstrap";
 import {generateUserStatistics, isGeneratingLeagueStatistics, updateUserStatistics} from '../../actions/actions'
 
 //import BarChart from './../charts/BarChart.js'
@@ -80,15 +80,68 @@ export class UserStats extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-12">
+              <Accordion>
+              <Panel defaultExpanded="true" header="Chart Options" eventKey="1">
+              <div className = "accordion-button-container">
 
-                <DropdownButton id = '2'  title="Statistic" bsStyle="default">
-                  <MenuItem eventKey="wins" onSelect={this.handleStatSelection}>Wins</MenuItem>
-                  <MenuItem eventKey="losses" onSelect={this.handleStatSelection}>Losses</MenuItem>
-                  <MenuItem eventKey="total-points-scored" onSelect={this.handleStatSelection}>Total Points Scored</MenuItem>
-                  <MenuItem eventKey="total-points-allowed" onSelect={this.handleStatSelection}>Total Points Allowed</MenuItem>
-                  <MenuItem eventKey="high-score" onSelect={this.handleStatSelection}>High Score</MenuItem>
-                  <MenuItem eventKey="low-score" onSelect={this.handleStatSelection}>Low Score</MenuItem>
-                </DropdownButton>
+
+              <div className = "button-container">
+              <h1>Seasons</h1>
+              <Button bsStyle = "primary">TEST
+              </Button>
+
+              <Button>TEST1
+              </Button>
+
+
+
+              <DropdownButton id = '1' title="Season" bsStyle="default">
+                <MenuItem eventKey="all" onSelect={this.handleSeasonSelection}>All Time</MenuItem>
+                <MenuItem divider />
+                <MenuItem eventKey="4" onSelect={this.handleSeasonSelection}>2016 Season</MenuItem>
+                <MenuItem eventKey="3" onSelect={this.handleSeasonSelection}>2015 Season</MenuItem>
+                <MenuItem eventKey="2" onSelect={this.handleSeasonSelection}>2014 Season</MenuItem>
+                <MenuItem eventKey="1" onSelect={this.handleSeasonSelection}>2013 Season</MenuItem>
+                <MenuItem eventKey="0" onSelect={this.handleSeasonSelection}>2012 Season</MenuItem>
+              </DropdownButton>
+              </div>
+              
+              <div className = "button-container">
+              <h1>Statistics</h1>
+
+              <DropdownButton id = '1'  title="Statistic" bsStyle="default">
+                <MenuItem eventKey="wins" onSelect={this.handleStatSelection}>Wins</MenuItem>
+                <MenuItem eventKey="losses" onSelect={this.handleStatSelection}>Losses</MenuItem>
+                <MenuItem eventKey="total-points-scored" onSelect={this.handleStatSelection}>Total Points Scored</MenuItem>
+                <MenuItem eventKey="total-points-allowed" onSelect={this.handleStatSelection}>Total Points Allowed</MenuItem>
+                <MenuItem eventKey="high-score" onSelect={this.handleStatSelection}>High Score</MenuItem>
+                <MenuItem eventKey="low-score" onSelect={this.handleStatSelection}>Low Score</MenuItem>
+
+
+
+              </DropdownButton>
+              </div>
+              <div className = "button-container">
+              <h1>Users</h1>
+
+              <DropdownButton id = '3'  title="Users" bsStyle="default">
+
+
+                <Button bsStyle = "primary">TEST
+                </Button>
+
+                <Button>TEST1
+                </Button>
+
+              </DropdownButton>
+              </div>
+
+              </div>
+              </Panel>
+   </Accordion>
+
+
+
               </div>
 
             </div>
@@ -96,13 +149,11 @@ export class UserStats extends React.Component {
             <div className="row">
 
               <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-                {this.renderUserNames()}
               </div>
               <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 {this.renderData()}
               </div>
               <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-                {this.renderUserNames()}
               </div>
 
             </div>
