@@ -1,4 +1,4 @@
-import awardData from './../data/awardData.json'
+import awardData from "./../data/awardData.json";
 
 export const INCREMENT_REQUESTED = "counter/INCREMENT_REQUESTED";
 export const INCREMENT = "counter/INCREMENT";
@@ -14,69 +14,59 @@ const initialState = {
   statistics: "highestScore"
 };
 
-export var seasonStatsReducer = (
-  state = {season: 0, statistics: "highestScore"},
-  action
-) => {
+export var seasonStatsReducer = (state = { season: 0, statistics: "highestScore" }, action) => {
   switch (action.type) {
     case "UPDATE_LEAGUE_SEASON":
-      return {...state, season: action.season };
+      return { ...state, season: action.season };
     case "UPDATE_LEAGUE_STATISTICS":
-      return {...state, statistics: action.stat };
+      return { ...state, statistics: action.stat };
     default:
       return state;
   }
 };
 
-export var awardDataReducer = (state = {awardData, trophy: "Champion"}, action) => {
-  switch(action.type){
+export var awardDataReducer = (state = { awardData, trophy: "Champion" }, action) => {
+  switch (action.type) {
     case "UPDATE_TROPHY":
-    return {...state, trophy: action.trophy}
-  default: return state;
+      return { ...state, trophy: action.trophy };
+    default:
+      return state;
   }
-
 };
 
-export var seasonStatsGenerationReducer = (
-  state = {isGenerating: false, data: {}},
-  action
-) => {
+export var seasonStatsGenerationReducer = (state = { isGenerating: false, data: {} }, action) => {
   switch (action.type) {
     case "TOGGLE_ISGENERATING_LEAGUE_STATISTICS":
-      return {...state, isGenerating: !state.isGenerating}
+      return { ...state, isGenerating: !state.isGenerating };
 
-  case "GENERATE_LEAGUE_STATISTICS":
-      return {...state, data: action.data}
+    case "GENERATE_LEAGUE_STATISTICS":
+      return { ...state, data: action.data };
 
     default:
       return state;
   }
 };
 
-export var userStatsGenerationReducer = (
-  state = {isGenerating: false, data: {}},
-  action
-) => {
+export var userStatsGenerationReducer = (state = { isGenerating: false, data: {} }, action) => {
   switch (action.type) {
     case "TOGGLE_ISGENERATING_USER_STATISTICS":
-      return {...state, isGenerating: !state.isGenerating}
+      return { ...state, isGenerating: !state.isGenerating };
 
-  case "GENERATE_USER_STATISTICS":
-      return {...state, data: action.data}
+    case "GENERATE_USER_STATISTICS":
+      return { ...state, data: action.data };
 
     default:
       return state;
   }
 };
 
-export var userStatsReducer = (
-  state = {statistics: "wins"},
-  action
-) => {
-  switch (action.type) {
+export var userStatsReducer = (state = { statistics: "wins", seasons: [] }, action) => {
 
+  switch (action.type) {
     case "UPDATE_USER_STATISTICS":
-      return {...state, statistics: action.stat };
+      return { ...state, statistics: action.stat };
+      case "UPDATE_USER_SEASONS":
+        return { ...state, seasons: action.seasons };
     default:
       return state;
   }

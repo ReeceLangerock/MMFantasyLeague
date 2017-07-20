@@ -165,8 +165,170 @@ var users = {
 };
 
 module.exports = {
-  clear() {},
-
+  clear() {
+    users = users = {
+      users: {
+        "Ryan Coxe": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 600,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        },
+        "Kevin Dobkin": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 600,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        },
+        "Jason Knaak": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 600,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        },
+        "JD Langefeld": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 600,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        },
+        "Reece Langerock": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 600,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        },
+        "Dave Longwell": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 100,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        },
+        "Jimmy Ouska": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 600,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        },
+        "Sean Quill": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 600,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        },
+        "Matt Reschke": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 600,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        },
+        "Bryan Steger": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 600,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        },
+        "Mike Unverricht": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 600,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        },
+        "Trey Ward": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 600,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        },
+        "Alex Warner": {
+          wins: 0,
+          losses: 0,
+          earnings: 0,
+          "buy-in": 600,
+          "total-points-scored": 0,
+          "total-points-allowed": 0,
+          "average-points-scored": 0,
+          "high-score": 0,
+          "low-score": 1000,
+          "what-if-wins": 0,
+          "what-if-losses": 0
+        }
+      }
+    };
+  },
+// ['Head-To-Head'][user].opponents[weekData.opponent][points-allowed-array].push(weekData['points-scored'])
   calculateHighScores(weekData, season, user, regularOrPlayoffs) {
     if (users.users[user]["high-score"] < weekData["points-scored"]) {
       users.users[user]["high-score"] = weekData["points-scored"];
@@ -239,7 +401,8 @@ module.exports = {
     }
   },
 
-  run(includeRegularSeason, includePlayoffs) {
+  run(includeRegularSeason, includePlayoffs, seasons = [0,1,2,3,4]) {
+    console.log(seasons)
     var that = this;
     that.clear();
     return new Promise(function(resolve, reject) {
@@ -253,6 +416,9 @@ module.exports = {
       for (uI = 0; uI < data.users.length; uI++) {
         var userName = data.users[uI].name;
         for (sI = 0; sI < data.users[uI].season.length - 1; sI++) {
+          if(seasons.includes(sI)){
+
+
           if (includeRegularSeason) {
             for (rI = 0; rI < data.users[uI].season[sI][rS].length; rI++) {
               var dataToCheck = data.users[uI].season[sI][rS][rI];
@@ -282,6 +448,7 @@ module.exports = {
             }
           }
         }
+      }
         that.calculateAverageScores(userName);
         that.calculateWinPercentage(userName);
       }
