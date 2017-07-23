@@ -60,13 +60,16 @@ export var userStatsGenerationReducer = (state = { isGenerating: false, data: {}
   }
 };
 
-export var userStatsReducer = (state = { statistics: "wins", seasons: [] }, action) => {
+export var userStatsReducer = (state = { statistics: "wins", seasons: [0,1,2,3,4], users: ['Ryan Coxe', 'Kevin Dobkin', 'Jason Knaak', 'JD Langefeld', 'Reece Langerock' , 'Jimmy Ouska',
+'Sean Quill', 'Matt Reschke', 'Bryan Steger', 'Mike Unverricht', 'Trey Ward', 'Alex Warner'] }, action) => {
 
   switch (action.type) {
     case "UPDATE_USER_STATISTICS":
       return { ...state, statistics: action.stat };
       case "UPDATE_USER_SEASONS":
         return { ...state, seasons: action.seasons };
+      case "UPDATE_USER_USERS":
+        return {...state, users: action.users}
     default:
       return state;
   }

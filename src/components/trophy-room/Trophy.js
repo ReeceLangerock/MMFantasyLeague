@@ -1,8 +1,9 @@
 import React from "react";
+import "./../../style/TrophyRoom/trophy.css";
 
 
 const TrophyRoom = props => (
-  <div>
+  <div className = 'trophy-item'>
     <h1>
 
       {props.year} {props.awardName} Award </h1>

@@ -1,6 +1,7 @@
 var data = require("./data.json");
 var awardData = require("./awardData.json");
 
+var defaultUsers = ["Ryan Coxe", "Kevin Dobkin", "Jason Knaak", "JD Langefeld", "Reece Langerock", "Jimmy Ouska", "Sean Quill", "Matt Reschke", "Bryan Steger", "Mike Unverricht", "Trey Ward", "Alex Warner"];
 const NUM_SEASONS = 5;
 var users = {
   users: {
@@ -166,7 +167,7 @@ var users = {
 
 module.exports = {
   clear() {
-    users = users = {
+    users = {
       users: {
         "Ryan Coxe": {
           wins: 0,
@@ -328,10 +329,11 @@ module.exports = {
       }
     };
   },
-// ['Head-To-Head'][user].opponents[weekData.opponent][points-allowed-array].push(weekData['points-scored'])
+  // ['Head-To-Head'][user].opponents[weekData.opponent][points-allowed-array].push(weekData['points-scored'])
   calculateHighScores(weekData, season, user, regularOrPlayoffs) {
     if (users.users[user]["high-score"] < weekData["points-scored"]) {
       users.users[user]["high-score"] = weekData["points-scored"];
+      console.log(weekData["points-scored"]);
     }
   },
   calculateLowScores(weekData, season, user, regularOrPlayoffs) {
@@ -360,10 +362,8 @@ module.exports = {
   },
   calculateAverageScores(user) {
     var games = users.users[user]["wins"] + users.users[user]["losses"];
-    users.users[user]["average-points-scored"] =
-      users.users[user]["total-points-scored"] / games;
-    users.users[user]["average-points-allowed"] =
-      users.users[user]["total-points-allowed"] / games;
+    users.users[user]["average-points-scored"] = users.users[user]["total-points-scored"] / games;
+    users.users[user]["average-points-allowed"] = users.users[user]["total-points-allowed"] / games;
   },
   calculateWinPercentage(user) {
     var games = users.users[user]["wins"] + users.users[user]["losses"];
@@ -380,8 +380,8 @@ module.exports = {
         for (let i = 0; i < awards[key].season.length; i++) {
           var awardUser = awards[key].season[i].user;
           if (key === "Weekly Points Champion") {
-            for (let j = 0; j < awards[key].season[i].users.length; j++){
-              var awardUser = awards[key].season[i].users[j]['user-name'];
+            for (let j = 0; j < awards[key].season[i].users.length; j++) {
+              var awardUser = awards[key].season[i].users[j]["user-name"];
               var earnings = awards[key].season[i].users[j]["total-payout"];
 
               if (awardUser !== "" && earnings) {
@@ -401,8 +401,17 @@ module.exports = {
     }
   },
 
-  run(includeRegularSeason, includePlayoffs, seasons = [0,1,2,3,4]) {
-    console.log(seasons)
+  run(
+    includeRegularSeason,
+    includePlayoffs,
+    seasons = [0, 1, 2, 3, 4],
+    selectedUsers = ["Ryan Coxe", "Kevin Dobkin", "Jason Knaak", "JD Langefeld", "Reece Langerock", "Jimmy Ouska", "Sean Quill", "Matt Reschke", "Bryan Steger", "Mike Unverricht", "Trey Ward", "Alex Warner"]
+  ) {
+    console.log(includeRegularSeason);
+    console.log(includePlayoffs);
+    console.log(seasons);
+    console.log(selectedUsers);
+
     var that = this;
     that.clear();
     return new Promise(function(resolve, reject) {
@@ -415,46 +424,37 @@ module.exports = {
 
       for (uI = 0; uI < data.users.length; uI++) {
         var userName = data.users[uI].name;
-        for (sI = 0; sI < data.users[uI].season.length - 1; sI++) {
-          if(seasons.includes(sI)){
 
-
-          if (includeRegularSeason) {
-            for (rI = 0; rI < data.users[uI].season[sI][rS].length; rI++) {
-              var dataToCheck = data.users[uI].season[sI][rS][rI];
-              that.calculateHighScores(dataToCheck, sI, userName, "R");
-              that.calculateLowScores(dataToCheck, sI, userName, "R");
-              that.calculateWinsAndLosses(dataToCheck, sI, userName, "R");
-              that.calculateTotalPointsForAndAgainst(
-                dataToCheck,
-                sI,
-                userName,
-                "R"
-              );
-            }
-          }
-          if (includePlayoffs) {
-            for (pI = 0; pI < data.users[uI].season[sI][pS].length; pI++) {
-              var dataToCheck = data.users[uI].season[sI][pS][pI];
-              that.calculateHighScores(dataToCheck, sI, userName, "P");
-              that.calculateLowScores(dataToCheck, sI, userName, "P");
-              that.calculateWinsAndLosses(dataToCheck, sI, userName, "P");
-              that.calculateTotalPointsForAndAgainst(
-                dataToCheck,
-                sI,
-                userName,
-                "P"
-              );
+        if (selectedUsers.includes(userName)) {
+          for (sI = 0; sI < data.users[uI].season.length - 1; sI++) {
+            if (seasons.includes(sI)) {
+              if (includeRegularSeason) {
+                for (rI = 0; rI < data.users[uI].season[sI][rS].length; rI++) {
+                  var dataToCheck = data.users[uI].season[sI][rS][rI];
+                  that.calculateHighScores(dataToCheck, sI, userName, "R");
+                  that.calculateLowScores(dataToCheck, sI, userName, "R");
+                  that.calculateWinsAndLosses(dataToCheck, sI, userName, "R");
+                  that.calculateTotalPointsForAndAgainst(dataToCheck, sI, userName, "R");
+                }
+              }
+              if (includePlayoffs) {
+                for (pI = 0; pI < data.users[uI].season[sI][pS].length; pI++) {
+                  var dataToCheck = data.users[uI].season[sI][pS][pI];
+                  that.calculateHighScores(dataToCheck, sI, userName, "P");
+                  that.calculateLowScores(dataToCheck, sI, userName, "P");
+                  that.calculateWinsAndLosses(dataToCheck, sI, userName, "P");
+                  that.calculateTotalPointsForAndAgainst(dataToCheck, sI, userName, "P");
+                }
+              }
             }
           }
         }
-      }
         that.calculateAverageScores(userName);
         that.calculateWinPercentage(userName);
       }
 
       that.calculateEarnings();
-
+      console.log("users", users);
       resolve({
         users,
         completed: true

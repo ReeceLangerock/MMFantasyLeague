@@ -6,6 +6,7 @@ import * as actions from "./../../actions/actions.js";
 import { bindActionCreators } from "redux";
 import { DropdownButton, MenuItem } from "react-bootstrap";
 import {generateLeagueStatistics, isGeneratingLeagueStatistics, updateLeagueStatistics, updateLeagueSeason} from '../../actions/actions'
+import "./../../style/Stats/stats.css";
 
 //import BarChart from './../charts/BarChart.js'
 
@@ -66,7 +67,7 @@ export class LeagueStats extends React.Component {
 
     render() {
       return (
-        <div className="container">
+        <div className="container contain-all">
           <div className="row justify-content-center">
 
             <div className="row">

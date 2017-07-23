@@ -37,11 +37,11 @@ export var generateLeagueStatistics = (includeRegularSeason, includePlayoffs) =>
  }
 };
 
-export var generateUserStatistics = (includeRegularSeason, includePlayoffs, seasonsSelected) => {
+export var generateUserStatistics = (includeRegularSeason, includePlayoffs, seasonsSelected, usersSelected) => {
   return (dispatch) => {
   dispatch(isGeneratingUserStatistics())
 
-  userDataHandler.run(includeRegularSeason, includePlayoffs, seasonsSelected).then((data) => {
+  userDataHandler.run(includeRegularSeason, includePlayoffs, seasonsSelected, usersSelected).then((data) => {
     dispatch ({
       type: "GENERATE_USER_STATISTICS",
       data
@@ -66,6 +66,12 @@ export var updateUserSeasons = seasons => {
   };
 };
 
+export var updateUserUsers = users => {
+  return {
+    type: "UPDATE_USER_USERS",
+    users
+  };
+};
 
 export var isGeneratingUserStatistics = () => {
   return {
