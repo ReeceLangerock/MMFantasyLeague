@@ -333,7 +333,7 @@ module.exports = {
   calculateHighScores(weekData, season, user, regularOrPlayoffs) {
     if (users.users[user]["high-score"] < weekData["points-scored"]) {
       users.users[user]["high-score"] = weekData["points-scored"];
-      console.log(weekData["points-scored"]);
+
     }
   },
   calculateLowScores(weekData, season, user, regularOrPlayoffs) {
@@ -369,7 +369,7 @@ module.exports = {
     var games = users.users[user]["wins"] + users.users[user]["losses"];
 
     var winPercentage = users.users[user]["wins"] / games * 100;
-    winPercentage = winPercentage.toPrecision(4) + "%";
+    winPercentage = winPercentage.toPrecision(4);
     users.users[user]["win-percentage"] = winPercentage;
   },
 
@@ -407,10 +407,7 @@ module.exports = {
     seasons = [0, 1, 2, 3, 4],
     selectedUsers = ["Ryan Coxe", "Kevin Dobkin", "Jason Knaak", "JD Langefeld", "Reece Langerock", "Jimmy Ouska", "Sean Quill", "Matt Reschke", "Bryan Steger", "Mike Unverricht", "Trey Ward", "Alex Warner"]
   ) {
-    console.log(includeRegularSeason);
-    console.log(includePlayoffs);
-    console.log(seasons);
-    console.log(selectedUsers);
+
 
     var that = this;
     that.clear();
