@@ -1,9 +1,9 @@
-.App {
+D.App {
   text-align: center;
 }
 
 body{
-  background-color: rgb(119,36,50);
+background-color: #f7f7f7
 }
 
 .App-logo {
@@ -12,7 +12,7 @@ body{
 }
 
 .App-header {
-  background-color: #222;
+  background-color: rgb(119,36,50);
   height: 150px;
   padding: 20px;
   color: white;
@@ -21,12 +21,35 @@ body{
 .App-intro {
   font-size: large;
 }
-.contain-all {
-  background-color: white;
-border-radius: 10px;
+.navbar-inverse {
+  background-color: rgb(119,36,50);
+  border-radius: 0px;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+  background-color: rgb(139,110,74);
 
 }
 
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+  background-color: rgb(119,36,50);
+
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+  background-color: rgb(139,110,74)
+
+
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+  background-color: rgba(119,36,50, 0.1);
+
+}
+
+.dropdown-menu {
+background-color: rgba(119,36,50, 0.1);
+
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

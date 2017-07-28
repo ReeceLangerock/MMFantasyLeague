@@ -19,71 +19,71 @@ export class TrophyRoom extends React.Component {
       var awardName = this.props.trophy;
 
       return this.props.awardData[awardName].season.map(award => {
+        console.log('award',award);
         return <Trophy key={award.year + awardName} awardName={awardName} year={award.year} user={award.user} />;
       });
     }
   };
 
   handleTrophySelection(e) {
-    this.props.updateTrophy(e.target.value);
+    console.log(e.target.getAttribute("data-trophy"));
+    this.props.updateTrophy(e.target.getAttribute("data-trophy"));
   }
 
   render() {
     return (
-      <div className="container  contain-all">
-        <div className="row justify-content-center">
-          <h1>Trophy Room</h1>
-          <div>
-            <div className="row">
-              <div className="col-md-12">
-                <ButtonToolbar>
-                  <ButtonGroup>
-                    <h5>Playoffs</h5>
-                    <Button bsStyle="primary" value="Champion" onClick={this.handleTrophySelection}>
-                      Champion
-                    </Button>
-                    <Button bsStyle="primary" value="Runner-Up" onClick={this.handleTrophySelection}>
-                      Runner Up
-                    </Button>
-                    <Button bsStyle="primary" value="Second Runner-Up" onClick={this.handleTrophySelection}>
-                      Second Runner Up
-                    </Button>
-                    <Button bsStyle="primary" value="Consolation Bracket Champion" onClick={this.handleTrophySelection}>
-                      Consolation 'Champ'
-                    </Button>
-                    <Button bsStyle="primary" value="Playoff Points Champion" onClick={this.handleTrophySelection}>
-                      Points Champiom
-                    </Button>
-                  </ButtonGroup>
-                  <ButtonGroup>
-                    <h5>Regular Season</h5>
-                    <Button bsStyle="primary" value="Points Winner" onClick={this.handleTrophySelection}>
-                      Points Champion
-                    </Button>
-                    <Button bsStyle="primary" value="Regular Season Winner" onClick={this.handleTrophySelection}>
-                      Regular Season Champ
-                    </Button>
-                  </ButtonGroup>
-                  <ButtonGroup>
-                    <h5>Shame...Shame...Shame...</h5>
-                    <Button bsStyle="primary" value="Longwell Award Winner" onClick={this.handleTrophySelection}>
-                      Longwell Cup Winner
-                    </Button>
-                  </ButtonGroup>
-                </ButtonToolbar>
-              </div>
-            </div>
-          </div>
+      <div className="container-fluid">
 
-
+        <div>
           <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-              <div className="trophy-container">
-                {this.renderTrophies()}
+            <div className="col-md-12">
+              <div className="trophy-room-container">
+                <div className="trophy-button-container">
+                  <span className = "trophy-button-title">Playoffs</span>
+                  <span className="trophy-button" data-trophy="Champion" onClick={this.handleTrophySelection}>
+                    Champion
+                  </span>
+                  <span className="trophy-button" data-trophy="Runner-Up" onClick={this.handleTrophySelection}>
+                    Runner Up
+                  </span>
+                  <span className="trophy-button" data-trophy="Second Runner-Up" onClick={this.handleTrophySelection}>
+                    Second Runner Up
+                  </span>
+                  <span className="trophy-button" data-trophy="Consolation Bracket Champion" onClick={this.handleTrophySelection}>
+                    Consolation 'Champ'
+                  </span>
+                  <span className="trophy-button" data-trophy="Playoff Points Champion" onClick={this.handleTrophySelection}>
+                    Points Champiom
+                  </span>
+                  <hr/>
+
+                  <span className = "trophy-button-title">Regular Season</span>
+                  <span className="trophy-button" data-trophy="Points Winner" onClick={this.handleTrophySelection}>
+                    Points Champion
+                  </span>
+                  <span className="trophy-button" data-trophy="Regular Season Winner" onClick={this.handleTrophySelection}>
+                    Regular Season Champ
+                  </span>
+                  <hr/>
+                  <span className = "trophy-button-title">Shame</span>
+                  <span className="trophy-button" data-trophy="Longwell Award Winner" onClick={this.handleTrophySelection}>
+                    Longwell Cup Winner
+                  </span>
+                </div>
+
+                <div className = "trophy-section-container">
+                  <span className = "trophy-title">Trophy Room</span>
+                  <div className="trophy-container">
+
+                    {this.renderTrophies()}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
+
       </div>
     );
   }

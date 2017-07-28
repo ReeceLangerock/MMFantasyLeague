@@ -9,10 +9,10 @@ class Navigation extends React.Component {
   render() {
     return (
       <header>
-        <Navbar inverse collapseOnSelect>
+        <Navbar inverse collapseOnSelect >
           <Navbar.Header>
             <LinkContainer to="/">
-              <Navbar.Brand>
+              <Navbar.Brand >
                 Mansion Men
               </Navbar.Brand>
             </LinkContainer>

@@ -1,19 +1,19 @@
 import React from "react";
 import "./../../style/TrophyRoom/trophy.css";
 
-
 const TrophyRoom = props => (
-  <div className = 'trophy-item'>
-    <h1>
+  <div className="trophy-item">
+    <span>{props.user}</span>
 
-      {props.year} {props.awardName} Award </h1>
-      <h2> Won by: &nbsp;
-      {props.user}
-      <img src = {require("./../../assets/trophy.jpg")}/>
-    </h2>
+    <span  className = "trophy-image">
+      <img src={require("./../../assets/trophy.jpg")} />
 
+    </span>
+    <span className="trophy-item-title">
+      {props.year}&nbsp;{props.awardName}
+    </span>
 
   </div>
 );
 
-export default TrophyRoom
+export default TrophyRoom;

@@ -1,4 +1,26 @@
 .trophy-item {
   margin: 5px;
-  border: 1px solid;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 2px;
+  transition: box-shadow .3s ease-in-out;
+  background-color: #fff;
+  padding: 10px 7px 10px 7px;
+  font-size: 18px;
+  max-width: 300px;
+  word-wrap: normal;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.trophy-image {
+  margin:10px 0px 10px 0px;
+
+
+}
+
+.trophy-item:hover{
+  box-shadow: 0 10px 20px rgba(119,36,50,0.19), 0 6px 6px rgba(119,36,50,0.23);
+  color: rgb(119,36,50);
+
 }
