@@ -20,14 +20,14 @@ class DataSelector extends React.Component {
     this.props.updateUserStatistics(e.target.value);
   }
   handleSeasonSelection(e) {
-    e.target.classList.toggle("btn-primary");
-    e.target.classList.toggle("btn-success");
+    // e.target.classList.toggle("btn-primary");
+    e.target.classList.toggle("stat-span-active");
 
-    var seasonButtons = document.getElementsByName("seasonButton");
+    var seasonSpans = document.getElementsByName("seasonSpan");
     var seasonsSelected = [];
-    for (let i = 0; i < seasonButtons.length; i++) {
-      if (seasonButtons[i].classList.contains("btn-success")) {
-        seasonsSelected.push(parseInt(seasonButtons[i].value));
+    for (let i = 0; i < seasonSpans.length; i++) {
+      if (seasonSpans[i].classList.contains("stat-span-active")) {
+        seasonsSelected.push(parseInt(seasonSpans[i].value));
       }
     }
 
@@ -38,8 +38,7 @@ class DataSelector extends React.Component {
   }
 
   handleUserSelection(e) {
-    e.target.classList.toggle("btn-primary");
-    e.target.classList.toggle("btn-success");
+    e.target.classList.toggle("stat-span-active");
 
     var userButtons = document.getElementsByName("userButton");
     var usersSelected = [];
@@ -48,38 +47,84 @@ class DataSelector extends React.Component {
         usersSelected.push(userButtons[i].value);
       }
     }
-    console.log(usersSelected);
 
     this.props.updateUserUsers(usersSelected);
     this.props.generateUserStatistics(true, false, this.props.seasons, usersSelected);
   }
   render() {
-    return (
-      <PanelGroup defaultActiveKey="1" accordion>
-        <Panel header="Chart Options" eventKey="1">
-          <div className="accordion-button-container">
-            <div className="well data-selection-container">
-              <h5>Seasons</h5>
+      return (
 
-              <div className="button-container">
-                <Button bsStyle="success" className="button-child" name="seasonButton" id="season4" value="4" onClick={this.handleSeasonSelection}>
-                  2016 Season
-                </Button>
-                <Button bsStyle="success" className="button-child" name="seasonButton" id="season3" value="3" onClick={this.handleSeasonSelection}>
-                  2015 Season
-                </Button>
-                <Button bsStyle="success" className="button-child" name="seasonButton" id="season2" value="2" onClick={this.handleSeasonSelection}>
-                  2014 Season
-                </Button>
-                <Button bsStyle="success" className="button-child" name="seasonButton" id="season1" value="1" onClick={this.handleSeasonSelection}>
-                  2013 Season
-                </Button>
-                <Button bsStyle="success" className="button-child" name="seasonButton" id="season0" value="0" onClick={this.handleSeasonSelection}>
-                  2012 Season
-                </Button>
-              </div>
+              <div className="trophy-button-container">
+            <span className = "trophy-button-title">Season</span>
+            <div className = "span-col">
+            <span className="trophy-button stat-span-active" name = "seasonSpan" id = "season4" data-trophy="4" onClick={this.handleSeasonSelection}>
+              2016
+            </span>
+            <span className="trophy-button  stat-span-active" name = "seasonSpan" id = "season3" data-trophy="3" onClick={this.handleSeasonSelection}>
+              2015
+            </span>
             </div>
-            <div className="well data-selection-container">
+            <span className="trophy-button stat-span-active" name = "seasonSpan" id = "season2" data-trophy="2" onClick={this.handleSeasonSelection}>
+              2014
+            </span>
+            <span className="trophy-button stat-span-active" name = "seasonSpan" id = "season1" data-trophy="1" onClick={this.handleSeasonSelection}>
+               2013
+            </span>
+            <span className="trophy-button stat-span-active" name = "seasonSpan" id = "season0" data-trophy="0" onClick={this.handleSeasonSelection}>
+               2012
+            </span>
+            <hr/>
+
+            <DropdownButton bsStyle="" title={"title"} key={1} id="1">
+     <MenuItem eventKey="1">Action</MenuItem>
+     <MenuItem eventKey="2">Another action</MenuItem>
+     <MenuItem eventKey="3" active>Active Item</MenuItem>
+     <MenuItem divider />
+     <MenuItem eventKey="4">Separated link</MenuItem>
+   </DropdownButton>
+
+            <span className = "trophy-button-title">Users</span>
+            <span className="trophy-button stat-span-active" name="userButton" id="user0" value="Ryan Coxe" onClick={this.handleSeasonSelection}>
+              Ryan Coxe
+            </span>
+            <span className="trophy-button stat-span-active" name="userButton" id="user1" value="Kevin Dobkin" onClick={this.handleSeasonSelection}>
+              Kevin Dobkin
+            </span>
+            <span className="trophy-button stat-span-active" name="userButton" id="user2" value="Jason Knaak" onClick={this.handleSeasonSelection}>
+              Jason Knaak
+            </span>
+            <span className="trophy-button stat-span-active" name="userButton" id="user3" value="JD Langefeld" onClick={this.handleSeasonSelection}>
+               JD Langefeld
+            </span>
+            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Reece Langerock" onClick={this.handleSeasonSelection}>
+               Reece Langerock
+            </span>
+            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Jimmy Ouska" onClick={this.handleSeasonSelection}>
+               Jimmy Ouska
+            </span>
+            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Sean Quill" onClick={this.handleSeasonSelection}>
+               Sean Quill
+            </span>
+            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Matt Reschke" onClick={this.handleSeasonSelection}>
+               Matt Reschke
+            </span>
+            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Bryan Steger" onClick={this.handleSeasonSelection}>
+              Bryan Steger
+            </span>
+            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Mike Unverricht" onClick={this.handleSeasonSelection}>
+               Mike Unverricht
+            </span>
+            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Trey Ward" onClick={this.handleSeasonSelection}>
+               Trey Ward
+            </span>
+            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Alex Warner" onClick={this.handleSeasonSelection}>
+               Alex Warner
+            </span>
+            <span className="trophy-button" name="userButton" id="user4" value="Reece Langerock" onClick={this.handleSeasonSelection}>
+               Dave Longwell
+            </span>
+            <hr/>
+            <div className="data-selection-container">
               <h5>Statistics</h5>
 
               <div className="button-container">
@@ -117,78 +162,13 @@ class DataSelector extends React.Component {
                   Average Points Against
                 </Button>
               </div>
-            </div>
-            <div className="well data-selection-container">
-              <h5>Users</h5>
 
-              <div className="button-container">
-                <Button bsStyle="success" className="button-child" name="userButton" id="user0" value="Ryan Coxe" onClick={this.handleUserSelection}>
-                  GM Coxe
-                </Button>
-                <Button bsStyle="success" className="button-child" name="userButton" id="user1" value="Kevin Dobkin" onClick={this.handleUserSelection}>
-                  GM Dobkin
-                </Button>
-                <Button bsStyle="success" className="button-child" name="userButton" id="user2" value="Jason Knaak" onClick={this.handleUserSelection}>
-                  GM Knaak
-                </Button>
-                <Button bsStyle="success" className="button-child" name="userButton" id="user3" value="JD Langefeld" onClick={this.handleUserSelection}>
-                  GM Langefeld
-                </Button>
-                <Button bsStyle="success" className="button-child" name="userButton" id="user4" value="Reece Langerock" onClick={this.handleUserSelection}>
-                  GM Langerock
-                </Button>
-                <Button bsStyle="success" className="button-child" name="userButton" id="user5" value="Jimmy Ouska" onClick={this.handleUserSelection}>
-                  GM Ouska
-                </Button>
-                <Button bsStyle="success" className="button-child" name="userButton" id="user6" value="Sean Quill" onClick={this.handleUserSelection}>
-                  GM Quill
-                </Button>
-                <Button bsStyle="success" className="button-child" name="userButton" id="user7" value="Matt Rescke" onClick={this.handleUserSelection}>
-                  GM Reschke
-                </Button>
-                <Button bsStyle="success" className="button-child" name="userButton" id="user8" value="Bryan Steger" onClick={this.handleUserSelection}>
-                  GM Steger
-                </Button>
-                <Button bsStyle="success" className="button-child" name="userButton" id="user9" value="Mike Unverricht" onClick={this.handleUserSelection}>
-                  GM Unverricht
-                </Button>
-                <Button bsStyle="success" className="button-child" name="userButton" id="user10" value="Trey Ward" onClick={this.handleUserSelection}>
-                  GM Ward
-                </Button>
-                <Button bsStyle="success" className="button-child" name="userButton" id="user11" value="Alex Warner" onClick={this.handleUserSelection}>
-                  GM Warner
-                </Button>
-              </div>
-              <hr />
-              <Button bsStyle="primary" className="button-child" name="userButton" id="user11" value="Dave Longwell" onClick={this.handleUserSelection}>
-                GM Longwell
-              </Button>
+
             </div>
 
-            <div className="well data-selection-container">
-              <h5>Misc</h5>
 
-              <div className="button-container">
-                <Button bsStyle="success" className="button-child" name="seasonButton" id="season4" value="4" onClick={this.handleSeasonSelection}>
-                  2016 Season
-                </Button>
-                <Button bsStyle="success" className="button-child" name="seasonButton" id="season3" value="3" onClick={this.handleSeasonSelection}>
-                  2015 Season
-                </Button>
-                <Button bsStyle="success" className="button-child" name="seasonButton" id="season2" value="2" onClick={this.handleSeasonSelection}>
-                  2014 Season
-                </Button>
-                <Button bsStyle="success" className="button-child" name="seasonButton" id="season1" value="1" onClick={this.handleSeasonSelection}>
-                  2013 Season
-                </Button>
-                <Button bsStyle="success" className="button-child" name="seasonButton" id="season0" value="0" onClick={this.handleSeasonSelection}>
-                  2012 Season
-                </Button>
-              </div>
-            </div>
           </div>
-        </Panel>
-      </PanelGroup>
+
     );
   }
 }

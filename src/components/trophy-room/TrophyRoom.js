@@ -53,7 +53,7 @@ export class TrophyRoom extends React.Component {
                     Consolation 'Champ'
                   </span>
                   <span className="trophy-button" data-trophy="Playoff Points Champion" onClick={this.handleTrophySelection}>
-                    Points Champiom
+                    Points Champion
                   </span>
                   <hr/>
 

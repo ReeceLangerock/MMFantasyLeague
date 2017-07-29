@@ -37,37 +37,34 @@ export class UserStats extends React.Component {
 
     // {this.renderData()}
     return (
-      <div className="container contain-all">
 
-        <div className="row">
-          <div className="col-md-12">
+      <div className="container-fluid">
+        <div>
+          <div className="row">
+            <div className="col-md-12">
+              <div className="trophy-room-container">
 
-            <h1>User Statistics</h1>
+              <DataSelector />
 
-            <p>
-              {this.props.isGenerating}
-            </p>
-
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-md-12">
-            <DataSelector />
-          </div>
-        </div>
-        <hr />
-        <div className="row justify-content-center">
-          <div className="col-md-12">
+                <div className = "trophy-section-container">
+                  <span className = "trophy-title">Trophy Room</span>
+                  <div className="trophy-container">
 
 
-            <div className="chart-container">
-              <BarChart size={[500, 500]} />
+                              <div className="chart-container">
+                                <BarChart size={[500, 500]} />
 
+                              </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
 
       </div>
+
     );
   }
 }
