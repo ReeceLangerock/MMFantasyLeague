@@ -33,6 +33,9 @@ class Navigation extends React.Component {
                 <LinkContainer to="/stats/user">
                   <MenuItem eventKey={3.2}>User</MenuItem>
                 </LinkContainer>
+                <LinkContainer to="/stats/head-to-head">
+                  <MenuItem eventKey={3.3}>Head to Head</MenuItem>
+                </LinkContainer>
               </NavDropdown>
             </Nav>
             <Nav pullRight>

@@ -11,7 +11,7 @@ margin: 5px;
 
 .trophy-room-container {
   display: flex;
-  margin: 20px 50px 20px 50px;
+  margin: 20px 40px 20px 50px;
   justify-content:flex-start;
 }
 
@@ -35,7 +35,7 @@ hr {
     height: 1px;
     border: 0;
     border-top: 1px solid #ccc;
-    margin: .5em .5em;
+    margin: .75em 1em;
     padding: 0;
 }
 
@@ -84,24 +84,17 @@ line-height: 25px;
 
 }
 
+.trophy-span-active {
+  font-weight: bold;
+  box-shadow: 0 5px 10px rgba(119,36,50,0.19), 0 3px 3px rgba(119,36,50,0.23);
+  color: rgb(119,36,50);
+  background-color: rgba(119,36,50,0.05);
+
+}
+
 .trophy-button:hover {
   font-weight: bold;
   box-shadow: 0 5px 10px rgba(119,36,50,0.19), 0 3px 3px rgba(119,36,50,0.23);
   color: rgb(119,36,50);
   background-color: rgba(119,36,50,0.05);
-}
-
-.stat-span-active {
-  font-weight: bold;
-  border: 1px solid;
-  margin: 1px;
-  color: rgb(119,36,50);
-  background-color: rgba(119,36,50,0.05);
-}
-
-.span-col {
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  flex-grow: 1;
 }

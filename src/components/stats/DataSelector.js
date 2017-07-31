@@ -1,9 +1,11 @@
+"use strict";
 //EVENTUALLY BREAK THIS OUT TO COMPONENT TO USE WITH BOTH STAT PAGES
 import React from "react";
-import { generateUserStatistics, isGeneratingLeagueStatistics, updateUserStatistics, updateUserSeasons, updateUserUsers } from "../../actions/actions";
+import { generateUserStatistics, generateLeagueStatistics, isGeneratingLeagueStatistics, updateUserStatistics, updateUserSeasons, updateUserUsers } from "../../actions/actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { DropdownButton, PageHeader, MenuItem, Button, Accordion, Panel, PanelGroup, Label } from "react-bootstrap";
+import lists from "./../../data/lists.js";
 
 class DataSelector extends React.Component {
   constructor(props) {
@@ -13,28 +15,36 @@ class DataSelector extends React.Component {
     this.handleUserSelection = this.handleUserSelection.bind(this);
   }
   componentWillMount() {
-    this.props.generateUserStatistics(true, false);
+    if (this.props.dataSelectorToRender === "user") {
+      this.props.generateUserStatistics(true, false);
+    } else {
+      this.props.generateLeagueStatistics(true, false);
+    }
   }
   handleStatSelection(e) {
     e.preventDefault();
-    this.props.updateUserStatistics(e.target.value);
+    var statSpans = document.getElementsByName("statSpan");
+    for (let i = 0; i < statSpans.length; i++) {
+      statSpans[i].classList.remove("stat-span-active");
+    }
+    let stat = e.target.getAttribute("data-stat");
+    e.target.classList.toggle("stat-span-active");
+
+    this.props.updateUserStatistics(stat);
   }
   handleSeasonSelection(e) {
-    // e.target.classList.toggle("btn-primary");
     e.target.classList.toggle("stat-span-active");
 
     var seasonSpans = document.getElementsByName("seasonSpan");
     var seasonsSelected = [];
     for (let i = 0; i < seasonSpans.length; i++) {
       if (seasonSpans[i].classList.contains("stat-span-active")) {
-        seasonsSelected.push(parseInt(seasonSpans[i].value));
+        seasonsSelected.push(parseInt(seasonSpans[i].getAttribute("data-season")));
       }
     }
 
     this.props.updateUserSeasons(seasonsSelected);
     this.props.generateUserStatistics(true, false, seasonsSelected, this.props.users);
-
-    //this.props.updateUserStatistics(e);
   }
 
   handleUserSelection(e) {
@@ -44,136 +54,224 @@ class DataSelector extends React.Component {
     var usersSelected = [];
     for (let i = 0; i < userButtons.length; i++) {
       if (userButtons[i].classList.contains("btn-success")) {
-        usersSelected.push(userButtons[i].value);
+        usersSelected.push(userButtons[i].getAttribute("data-user"));
       }
     }
 
     this.props.updateUserUsers(usersSelected);
     this.props.generateUserStatistics(true, false, this.props.seasons, usersSelected);
   }
-  render() {
-      return (
 
-              <div className="trophy-button-container">
-            <span className = "trophy-button-title">Season</span>
-            <div className = "span-col">
-            <span className="trophy-button stat-span-active" name = "seasonSpan" id = "season4" data-trophy="4" onClick={this.handleSeasonSelection}>
-              2016
-            </span>
-            <span className="trophy-button  stat-span-active" name = "seasonSpan" id = "season3" data-trophy="3" onClick={this.handleSeasonSelection}>
-              2015
-            </span>
-            </div>
-            <span className="trophy-button stat-span-active" name = "seasonSpan" id = "season2" data-trophy="2" onClick={this.handleSeasonSelection}>
-              2014
-            </span>
-            <span className="trophy-button stat-span-active" name = "seasonSpan" id = "season1" data-trophy="1" onClick={this.handleSeasonSelection}>
-               2013
-            </span>
-            <span className="trophy-button stat-span-active" name = "seasonSpan" id = "season0" data-trophy="0" onClick={this.handleSeasonSelection}>
-               2012
-            </span>
-            <hr/>
+  renderActiveUserSpans() {
+    const users = lists.getUserList();
+    let activeUsers = [];
+    //filter out legacy members
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].active) {
+        activeUsers.push(users[i]);
+      }
+    }
 
-            <DropdownButton bsStyle="" title={"title"} key={1} id="1">
-     <MenuItem eventKey="1">Action</MenuItem>
-     <MenuItem eventKey="2">Another action</MenuItem>
-     <MenuItem eventKey="3" active>Active Item</MenuItem>
-     <MenuItem divider />
-     <MenuItem eventKey="4">Separated link</MenuItem>
-   </DropdownButton>
+    var twoUsers = [];
+    for (let i = 0; i < activeUsers.length; i = i + 2) {
+      if (activeUsers[i + 1]) {
+        twoUsers.push([activeUsers[i], activeUsers[i + 1]]);
+      } else {
+        twoUsers.push([activeUsers[i]]);
+      }
+    }
+    return twoUsers.map((user, index) => {
+      var userKey = `user${index}`;
 
-            <span className = "trophy-button-title">Users</span>
-            <span className="trophy-button stat-span-active" name="userButton" id="user0" value="Ryan Coxe" onClick={this.handleSeasonSelection}>
-              Ryan Coxe
-            </span>
-            <span className="trophy-button stat-span-active" name="userButton" id="user1" value="Kevin Dobkin" onClick={this.handleSeasonSelection}>
-              Kevin Dobkin
-            </span>
-            <span className="trophy-button stat-span-active" name="userButton" id="user2" value="Jason Knaak" onClick={this.handleSeasonSelection}>
-              Jason Knaak
-            </span>
-            <span className="trophy-button stat-span-active" name="userButton" id="user3" value="JD Langefeld" onClick={this.handleSeasonSelection}>
-               JD Langefeld
-            </span>
-            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Reece Langerock" onClick={this.handleSeasonSelection}>
-               Reece Langerock
-            </span>
-            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Jimmy Ouska" onClick={this.handleSeasonSelection}>
-               Jimmy Ouska
-            </span>
-            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Sean Quill" onClick={this.handleSeasonSelection}>
-               Sean Quill
-            </span>
-            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Matt Reschke" onClick={this.handleSeasonSelection}>
-               Matt Reschke
-            </span>
-            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Bryan Steger" onClick={this.handleSeasonSelection}>
-              Bryan Steger
-            </span>
-            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Mike Unverricht" onClick={this.handleSeasonSelection}>
-               Mike Unverricht
-            </span>
-            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Trey Ward" onClick={this.handleSeasonSelection}>
-               Trey Ward
-            </span>
-            <span className="trophy-button stat-span-active" name="userButton" id="user4" value="Alex Warner" onClick={this.handleSeasonSelection}>
-               Alex Warner
-            </span>
-            <span className="trophy-button" name="userButton" id="user4" value="Reece Langerock" onClick={this.handleSeasonSelection}>
-               Dave Longwell
-            </span>
-            <hr/>
-            <div className="data-selection-container">
-              <h5>Statistics</h5>
+      if (user.length === 2) {
+        return (
+          <div key={userKey} className="span-col">
 
-              <div className="button-container">
-                <Button bsStyle="primary" className="button-child" name="statButton" id="stat0" value="wins" onClick={this.handleStatSelection}>
-                  Wins
-                </Button>
-                <Button bsStyle="primary" className="button-child" name="statButton" id="stat1" value="losses" onClick={this.handleStatSelection}>
-                  Losses
-                </Button>
-                <Button bsStyle="primary" className="button-child" name="statButton" id="stat2" value="win-percentage" onClick={this.handleStatSelection}>
-                  Win Percentage
-                </Button>
-                <Button bsStyle="primary" className="button-child" name="statButton" id="stat3" value="total-points-scored" onClick={this.handleStatSelection}>
-                  Point Scored
-                </Button>
-                <Button bsStyle="primary" className="button-child" name="statButton" id="stat4" value="total-points-allowed" onClick={this.handleStatSelection}>
-                  Points Allowed
-                </Button>
-                <Button bsStyle="primary" className="button-child" name="statButton" id="stat5" value="high-score" onClick={this.handleStatSelection}>
-                  High Score
-                </Button>
-                <Button bsStyle="primary" className="button-child" name="statButton" id="stat6" value="low-score" onClick={this.handleStatSelection}>
-                  Low Score
-                </Button>
-                <Button bsStyle="primary" className="button-child" disabled name="statButton" id="stat7" value="what-if-wins" onClick={this.handleStatSelection}>
-                  'What If' Record
-                </Button>
-                <Button bsStyle="primary" className="button-child" name="statButton" id="stat8" value="earnings" onClick={this.handleStatSelection}>
-                  Earnings
-                </Button>
-                <Button bsStyle="primary" className="button-child" name="statButton" id="stat9" value="average-points-scored" onClick={this.handleStatSelection}>
-                  Average Points Scored
-                </Button>
-                <Button bsStyle="primary" className="button-child" name="statButton" id="stat10" value="average-points-allowed" onClick={this.handleStatSelection}>
-                  Average Points Against
-                </Button>
-              </div>
+            <span className="stat-span stat-span-active" name="userSpan" id={user[0].name} data-user={user[0].name} onClick={this.handleUserSelection}>
+              {user[0].name}
+            </span>
 
-
-            </div>
-
-
+            <span className="stat-span stat-span-active" name="userSpan" id={user[1].name} data-user={user[1].name} onClick={this.handleUserSelection}>
+              {user[1].name}
+            </span>
           </div>
+        );
+      } else {
+        return (
+          <div key={userKey} className="span-col">
 
+            <span className="stat-span stat-span-active" name="userSpan" id={user[0].name} data-user={user[0].name} onClick={this.handleUserSelection}>
+              {user[0].name}
+            </span>
+          </div>
+        );
+      }
+    });
+  }
+
+  renderLegacyUserSpans() {
+    const users = lists.getUserList();
+    let legacyUsers = [];
+    //filter out active members
+    for (let i = 0; i < users.length; i++) {
+      if (!users[i].active) {
+        legacyUsers.push(users[i]);
+      }
+    }
+    var twoUsers = [];
+    for (let i = 0; i < legacyUsers.length; i = i + 2) {
+      if (legacyUsers[i + 1]) {
+        twoUsers.push([legacyUsers[i], legacyUsers[i + 1]]);
+      } else {
+        twoUsers.push([legacyUsers[i]]);
+      }
+    }
+    return twoUsers.map((user, index) => {
+      var userKey = `user${index}`;
+
+      if (user.length === 2) {
+        return (
+          <div key={userKey} className="span-col">
+
+            <span className="stat-span stat-span-active" name="userSpan" id={user[0].name} data-user={user[0].name} onClick={this.handleUserSelection}>
+              {user[0].name}
+            </span>
+
+            <span className="stat-span stat-span-active" name="userSpan" id={user[1].name} data-user={user[1].name} onClick={this.handleUserSelection}>
+              {user[1].name}
+            </span>
+          </div>
+        );
+      } else {
+        return (
+          <div key={userKey} className="span-col">
+
+            <span className="stat-span stat-span-active" name="userSpan" id={user[0].name} data-user={user[0].name} onClick={this.handleUserSelection}>
+              {user[0].name}
+            </span>
+          </div>
+        );
+      }
+    });
+  }
+
+  renderStatisticsSpans() {
+    let stats;
+    var defaultStat;
+    if (this.props.dataSelectorToRender === "user") {
+      stats = lists.getUserStatList();
+      defaultStat = this.props.selectedUserStat;
+    } else {
+      stats = lists.getLeagueStatList();
+      defaultStat = this.props.selectedLeagueStat;
+
+    }
+    console.log(defaultStat);
+    var twoStats = [];
+    for (let i = 0; i < stats.length; i = i + 2) {
+      if (stats[i + 1]) {
+        twoStats.push([stats[i], stats[i + 1]]);
+      } else {
+        twoStats.push([stats[i]]);
+      }
+    }
+    return twoStats.map((stat, index) => {
+      var statKey = `stat${index}`;
+
+
+      let style0 = (stat[0].name === defaultStat) ? "stat-span stat-span-active" : "stat-span";
+
+      if (stat.length === 2) {
+        let style1 = (stat[1].name === defaultStat) ? "stat-span stat-span-active" : "stat-span";
+
+        return (
+          <div key={statKey} className="span-col">
+
+            <span className={style0} name="statSpan" id={stat[0].name} data-stat={stat[0].name} onClick={this.handleStatSelection}>
+              {stat[0].formattedName}
+            </span>
+
+            <span className={style1} name="statSpan" id={stat[1].name} data-stat={stat[1].name} onClick={this.handleStatSelection}>
+              {stat[1].formattedName}
+            </span>
+          </div>
+        );
+      } else {
+        return (
+          <div key={statKey} className="span-col">
+
+            <span className={style0} name="statSpan" id={stat[0].name} data-stat={stat[0].name} onClick={this.handleStatSelection}>
+              {stat[0].formattedName}
+            </span>
+          </div>
+        );
+      }
+    });
+  }
+
+  render() {
+    return (
+      <div className="stat-selection-container">
+        <span className="trophy-button-title">Season</span>
+        <div className="span-col">
+          <span className="stat-span stat-span-active" name="seasonSpan" id="season4" data-season="4" onClick={this.handleSeasonSelection}>
+            2016
+          </span>
+          <span className="stat-span  stat-span-active" name="seasonSpan" id="season3" data-season="3" onClick={this.handleSeasonSelection}>
+            2015
+          </span>
+        </div>
+        <div className="span-col">
+
+          <span className="stat-span stat-span-active" name="seasonSpan" id="season2" data-season="2" onClick={this.handleSeasonSelection}>
+            2014
+          </span>
+          <span className="stat-span stat-span-active" name="seasonSpan" id="season1" data-season="1" onClick={this.handleSeasonSelection}>
+            2013
+          </span>
+        </div>
+        <div className="span-col">
+
+          <span className="stat-span stat-span-active" name="seasonSpan" id="season0" data-season="0" onClick={this.handleSeasonSelection}>
+            2012
+          </span>
+        </div>
+        <hr />
+        <span className="trophy-button-title">Regular and/or Playoffs</span>
+
+        <div className="span-col">
+
+          <span className="stat-span stat-span-active" name="playoffRegular" id="regular" data-pr="regular" onClick="">
+            Regular Season
+          </span>
+          <span className="stat-span" name="playoffRegular" id="playoffs" data-pr="playoffs" onClick="">
+            Playoffs
+          </span>
+        </div>
+
+        <hr />
+        {this.props.dataSelectorToRender === "user" &&
+          <div className="data-selection-container">
+            <h5>Users</h5>
+            {this.renderActiveUserSpans()}
+            <hr />
+            {this.renderLegacyUserSpans()}
+          </div>}
+        <hr />
+
+        <div className="data-selection-container">
+          <h5>Statistics</h5>
+          {this.renderStatisticsSpans()}
+
+        </div>
+
+      </div>
     );
   }
 }
 const mapStateToProps = state => ({
-  stats: state.userStatsReducer.statistics,
+  selectedUserStat: state.userStatsReducer.statistics,
+  selectedLeagueStat: state.seasonStatsReducer.statistics,
   seasons: state.userStatsReducer.seasons,
   users: state.userStatsReducer.users,
   renderData: state.userStatsGenerationReducer.data,
@@ -184,6 +282,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       generateUserStatistics,
+      generateLeagueStatistics,
       isGeneratingLeagueStatistics,
       updateUserStatistics,
       updateUserSeasons,

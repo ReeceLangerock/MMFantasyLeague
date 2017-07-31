@@ -42,19 +42,19 @@ export class UserStats extends React.Component {
         <div>
           <div className="row">
             <div className="col-md-12">
-              <div className="trophy-room-container">
+              <div className="stats-container">
 
-              <DataSelector />
+              <DataSelector dataSelectorToRender = "user"/>
 
-                <div className = "trophy-section-container">
+                <div className = "chart-section-container">
                   <span className = "trophy-title">Trophy Room</span>
-                  <div className="trophy-container">
+                  <div className="chart-container">
 
 
-                              <div className="chart-container">
+
                                 <BarChart size={[500, 500]} />
 
-                              </div>
+
                   </div>
                 </div>
               </div>

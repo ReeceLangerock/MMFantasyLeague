@@ -1,8 +1,8 @@
 var data = require("./data.json");
 var awardData = require("./awardData.json");
-
-var defaultUsers = ["Ryan Coxe", "Kevin Dobkin", "Jason Knaak", "JD Langefeld", "Reece Langerock", "Jimmy Ouska", "Sean Quill", "Matt Reschke", "Bryan Steger", "Mike Unverricht", "Trey Ward", "Alex Warner"];
 const NUM_SEASONS = 5;
+
+
 var users = {
   users: {
     "Ryan Coxe": {
@@ -333,7 +333,6 @@ module.exports = {
   calculateHighScores(weekData, season, user, regularOrPlayoffs) {
     if (users.users[user]["high-score"] < weekData["points-scored"]) {
       users.users[user]["high-score"] = weekData["points-scored"];
-
     }
   },
   calculateLowScores(weekData, season, user, regularOrPlayoffs) {
@@ -400,15 +399,25 @@ module.exports = {
       }
     }
   },
-
   run(
     includeRegularSeason,
     includePlayoffs,
     seasons = [0, 1, 2, 3, 4],
-    selectedUsers = ["Ryan Coxe", "Kevin Dobkin", "Jason Knaak", "JD Langefeld", "Reece Langerock", "Jimmy Ouska", "Sean Quill", "Matt Reschke", "Bryan Steger", "Mike Unverricht", "Trey Ward", "Alex Warner"]
+    selectedUsers = [
+      "Ryan Coxe",
+      "Kevin Dobkin",
+      "Jason Knaak",
+      "JD Langefeld",
+      "Reece Langerock",
+      "Jimmy Ouska",
+      "Sean Quill",
+      "Matt Reschke",
+      "Bryan Steger",
+      "Mike Unverricht",
+      "Trey Ward",
+      "Alex Warner"
+    ]
   ) {
-
-
     var that = this;
     that.clear();
     return new Promise(function(resolve, reject) {
