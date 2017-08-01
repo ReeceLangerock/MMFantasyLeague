@@ -82,7 +82,7 @@ export class LeagueStats extends React.Component {
 
 
 
-                        <BarChart size={[500, 500]} />
+                        <BarChart dataToDisplay = "league" />
 
 
                     </div>

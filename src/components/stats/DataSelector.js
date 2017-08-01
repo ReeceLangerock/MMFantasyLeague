@@ -50,10 +50,10 @@ class DataSelector extends React.Component {
   handleUserSelection(e) {
     e.target.classList.toggle("stat-span-active");
 
-    var userButtons = document.getElementsByName("userButton");
+    var userButtons = document.getElementsByName("userSpan");
     var usersSelected = [];
     for (let i = 0; i < userButtons.length; i++) {
-      if (userButtons[i].classList.contains("btn-success")) {
+      if (userButtons[i].classList.contains("stat-span-active")) {
         usersSelected.push(userButtons[i].getAttribute("data-user"));
       }
     }
@@ -133,11 +133,11 @@ class DataSelector extends React.Component {
         return (
           <div key={userKey} className="span-col">
 
-            <span className="stat-span stat-span-active" name="userSpan" id={user[0].name} data-user={user[0].name} onClick={this.handleUserSelection}>
+            <span className="stat-span" name="userSpan" id={user[0].name} data-user={user[0].name} onClick={this.handleUserSelection}>
               {user[0].name}
             </span>
 
-            <span className="stat-span stat-span-active" name="userSpan" id={user[1].name} data-user={user[1].name} onClick={this.handleUserSelection}>
+            <span className="stat-span" name="userSpan" id={user[1].name} data-user={user[1].name} onClick={this.handleUserSelection}>
               {user[1].name}
             </span>
           </div>
@@ -146,7 +146,7 @@ class DataSelector extends React.Component {
         return (
           <div key={userKey} className="span-col">
 
-            <span className="stat-span stat-span-active" name="userSpan" id={user[0].name} data-user={user[0].name} onClick={this.handleUserSelection}>
+            <span className="stat-span" name="userSpan" id={user[0].name} data-user={user[0].name} onClick={this.handleUserSelection}>
               {user[0].name}
             </span>
           </div>

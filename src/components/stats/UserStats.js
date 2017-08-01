@@ -34,26 +34,21 @@ export class UserStats extends React.Component {
   };
 
   render() {
-
     // {this.renderData()}
     return (
-
       <div className="container-fluid">
         <div>
           <div className="row">
             <div className="col-md-12">
               <div className="stats-container">
 
-              <DataSelector dataSelectorToRender = "user"/>
+                <DataSelector dataSelectorToRender="user" />
 
-                <div className = "chart-section-container">
-                  <span className = "trophy-title">Trophy Room</span>
+                <div className="chart-section-container">
+                  <span className="trophy-title">Trophy Room</span>
                   <div className="chart-container">
 
-
-
-                                <BarChart size={[500, 500]} />
-
+                    <BarChart dataToDisplay ="user"/>
 
                   </div>
                 </div>
@@ -64,7 +59,6 @@ export class UserStats extends React.Component {
         </div>
 
       </div>
-
     );
   }
 }
