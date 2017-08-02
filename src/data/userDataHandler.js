@@ -369,7 +369,7 @@ module.exports = {
 
     var winPercentage = users.users[user]["wins"] / games * 100;
     winPercentage = winPercentage.toPrecision(4);
-    users.users[user]["win-percentage"] = winPercentage;
+    users.users[user]["win-percentage"] = parseFloat(winPercentage);
   },
 
   calculateEarnings() {

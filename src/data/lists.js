@@ -1,3 +1,5 @@
+const SEASONS = [{ season: 2016, id: 4 }, { season: 2015, id: 3 }, { season: 2014, id: 2 }, { season: 2013, id: 1 }, { season: 2013, id: 0 }];
+
 const USER_LIST = [
   {
     name: "Ryan Coxe",
@@ -112,13 +114,16 @@ const LEAGUE_STAT_CATEGORY_LIST = [
   {
     name: "lowestScore",
     formattedName: "Lowest Score"
-  },{
+  },
+  {
     name: "largestMargin",
     formattedName: "Largest Margin"
-  },{
+  },
+  {
     name: "smallestMargin",
     formattedName: "Smallest Margin"
-  },{
+  },
+  {
     name: "worstWins",
     formattedName: "Worst Wins"
   },
@@ -126,7 +131,6 @@ const LEAGUE_STAT_CATEGORY_LIST = [
     name: "bestLosses",
     formattedName: "Best Losses"
   }
-
 ];
 module.exports = {
   getUserStatList() {
@@ -138,5 +142,8 @@ module.exports = {
   },
   getUserList() {
     return USER_LIST;
+  },
+  getSeasons() {
+    return SEASONS;
   }
 };

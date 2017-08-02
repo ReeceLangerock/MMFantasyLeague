@@ -1,21 +1,11 @@
 import { combineReducers } from "redux";
 import { routerReducer } from "react-router-redux";
-import {
-  counter,
-  seasonStatsReducer,
-  seasonStatsGenerationReducer,
-  awardDataReducer,
-  userStatsGenerationReducer,
-  userStatsReducer
-
-} from "./counter";
+import { dataSelectionReducer, seasonStatsGenerationReducer, awardDataReducer, userStatsGenerationReducer } from "./reducers";
 
 export default combineReducers({
   routing: routerReducer,
-  counter,
-  seasonStatsReducer,
   seasonStatsGenerationReducer,
   userStatsGenerationReducer,
-  userStatsReducer,
+  dataSelectionReducer,
   awardDataReducer
 });

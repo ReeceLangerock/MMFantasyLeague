@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as V from "victory";
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryLabel } from "victory";
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryLabel, VictoryTooltip } from "victory";
 class BarChart extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +11,8 @@ class BarChart extends Component {
   componentDidUpdate() {}
 
   calculateLeagueDate() {
-    var statToRender = this.props.leagueStat;
+    var statToRender = this.props.leagueDataStatSelected;
+    var season = this.props.leagueDataSeasonSelected;
     var data = this.props.leagueData;
     var xLabel = "";
     var chartIndex = [];
@@ -23,48 +24,32 @@ class BarChart extends Component {
         if (stat === statToRender) {
           xLabel = stat;
 
-          for (let i = 0; i < data[stat].length; i++) {
+          for (let j = 0; j < data[stat][season].data.length; j++) {
+            if (data[stat][season].data[j].score) {
+              var dataPoint = data[stat][season].data[j];
+              //saved for if i figure out multiple labels
+              // label: `${dataPoint.regularOrPlayoffs}, Week ${dataPoint.week}\nOpponent: ${dataPoint.opponent}` }
 
+              chartData.push({ x: realIndex, y: dataPoint.score, width: 10 });
 
-            for (let j = 0; j < data[stat][i].data.length; j++) {
-              if(data[stat][i].data[j].score) {
-              chartData.push({ x: realIndex, y: data[stat][i].data[j].score, width: 6 });
+              chartLabel.push(data[stat][season].data[j].user);
             } else {
-            chartData.push({ x: realIndex, y: data[stat][i].data[j].margin, width: 6 });
-
+              chartData.push({ x: realIndex, y: data[stat][season].data[j].margin, width: 10 });
             }
-              chartIndex.push(realIndex);
+            chartIndex.push(realIndex);
 
-               realIndex++;
-            }
+            realIndex++;
           }
-          // console.log(data[stat]);
-          // data[stat].map((key, index) => {
-          //
-          //   // console.log(key.data);
-          //   chartIndex.push(realIndex);
-          //   chartLabel.push(realIndex);
-          //     //chartData.push({ x: realIndex, y: data.users.users[user][statToRender], width: 6 });
-          //     realIndex++;
-          // })
         }
-        // if (this.props.users.includes(user)) {
-        //   chartIndex.push(realIndex);
-        //   chartLabel.push(user);
-        //
-        //   chartData.push({ x: realIndex, y: data.users.users[user][statToRender], width: 6 });
-        //   dataForChart.push({ value: data.users.users[user][statToRender], user: user });
-        //   realIndex++;
-        // }
       });
     }
-    console.log(chartData);
+    console.log("chartData", chartData);
     return { chartData, chartIndex, chartLabel, xLabel };
   }
   calculateUserDate() {
-    var statToRender = this.props.userStat;
+    var statToRender = this.props.userDataStatSelected;
     var data = this.props.userData;
-    var xLabel = this.props.userStat;
+    var xLabel = this.props.userDataStatSelected;
 
     var chartIndex = [];
     var chartLabel = [];
@@ -72,11 +57,14 @@ class BarChart extends Component {
     var realIndex = 1;
     if (data.completed) {
       Object.keys(data.users.users).map((user, index) => {
-        if (this.props.users.includes(user)) {
+        if (this.props.userDataUsersSelected.includes(user)) {
           chartIndex.push(realIndex);
           chartLabel.push(user);
-
-          chartData.push({ x: realIndex, y: data.users.users[user][statToRender], width: 6 });
+          if (data.users.users[user][statToRender] === 1000) {
+            chartData.push({ x: realIndex, y: 0, width: 10 });
+          } else {
+            chartData.push({ x: realIndex, y: data.users.users[user][statToRender], width: 6 });
+          }
           realIndex++;
         }
       });
@@ -91,29 +79,40 @@ class BarChart extends Component {
       var { chartIndex, chartLabel, chartData, xLabel } = this.calculateUserDate();
     } else if (this.props.dataToDisplay === "league") {
       var { chartIndex, chartLabel, chartData, xLabel } = this.calculateLeagueDate();
+      console.log(chartData);
     }
-    console.log(chartData);
-    //   let domainMax, domainMin = 0;
-    //   if(chartData){
-    //   domainMax = (1.2* Math.max.apply(Math,chartData.map(function(o){return o.y;})));
-    //   domainMin = (.9* Math.min.apply(Math,chartData.map(function(o){return o.y;})));
-    // }
 
+    // labelComponent={<VictoryTooltip/>}
     return (
       <VictoryChart
         width={800}
         height={400}
+
         animate={{
-          duration: 500,
+          duration: 1000,
           easing: "bounce"
         }}
         // adding the material theme provided with Victory
-        domainPadding={{ x: 20 }}
-        theme={VictoryTheme.material}
+        domainPadding={{ x: 20, y: 0 }}
+        padding={{ top: 40, bottom: 40, left: 60, right: 20 }}
+
       >
-        <VictoryAxis tickValues={chartIndex} tickFormat={chartLabel} style={{ tickLabels: { fontSize: 10, angle: -60 } }} />
-        <VictoryAxis dependentAxis tickFormat={x => x} label={xLabel} />
+        <VictoryAxis
+          tickValues={chartIndex}
+          tickFormat={chartLabel}
+          style={{ tickLabels: { fontSize: 10, angle: -60 } }}
+
+        />
+        <VictoryAxis dependentAxis tickFormat={x => x} label={xLabel}   axisLabelComponent={<VictoryLabel dy={-20}/>} />
         <VictoryBar
+          style={{
+            data: {
+              fill: "rgb(119,36,50)",
+              fillOpacity: 0.5,
+              stroke: "rgb(119,36,50)",
+              strokeWidth: 2
+            }
+          }}
           data={chartData}
           x="x"
           y="y"
@@ -143,10 +142,11 @@ class BarChart extends Component {
 }
 
 const mapStateToProps = state => ({
-  season: state.userStatsReducer.season,
-  userStat: state.userStatsReducer.statistics,
-  leagueStat: state.seasonStatsReducer.statistics,
-  users: state.userStatsReducer.users,
+  userDataStatSelected: state.dataSelectionReducer.userDataStatSelected,
+  leagueDataStatSelected: state.dataSelectionReducer.leagueDataStatSelected,
+  leagueDataSeasonSelected: state.dataSelectionReducer.leagueDataSeasonSelected,
+  userDataSeasonSelected: state.dataSelectionReducer.userDataSeasonSelected,
+  userDataUsersSelected: state.dataSelectionReducer.userDataUsersSelected,
   userData: state.userStatsGenerationReducer.data,
   leagueData: state.seasonStatsGenerationReducer.data,
   isGenerating: state.seasonStatsGenerationReducer.isGenerating

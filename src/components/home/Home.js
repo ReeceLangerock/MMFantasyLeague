@@ -1,43 +1,44 @@
 import React from "react";
 import { push } from "react-router-redux";
 import { bindActionCreators } from "redux";
+import { Jumbotron } from "react-bootstrap";
 import { connect } from "react-redux";
-import {increment, incrementAsync, decrement, decrementAsync} from '../../modules/counter'
+import "./../../style/Home.css";
 
+export class Home extends React.Component {
+  componentWillMount() {
+    console.log('will', document.body.classList)
+    document.body.classList.add('disable-scroll')
+  }
+  componentWillUnmount(){
+    document.body.classList.remove('disable-scroll')
 
-const Home = props => (
-  <div>
+  }
+  render() {
+    return (
+      <div className="parallax">
+        <div className="container">
+          <div className = "hover-container">
+          <Jumbotron className="title">
+        
+            <h1 className = "title-font">Mansion Men</h1>
+            <h3>Official Home of the Mansion Men Fantasy Football League</h3>
 
-      <h1>Home</h1>
-      <p>{props.name}</p>
-      <p>Count: {props.count}</p>
+          </Jumbotron>
+  </div>
+        </div>
+      </div>
+    );
+  }
+}
+const mapStateToProps = state => ({});
 
-      <p>
-        <button onClick={props.increment} disabled={props.isIncrementing}>Increment</button>
-        <button className="btn btn-primary" onClick={props.incrementAsync} disabled={props.isIncrementing}>Increment Async</button>
-      </p>
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      changePage: () => push("about")
+    },
+    dispatch
+  );
 
-      <p>
-        <button onClick={props.decrement} disabled={props.isDecrementing}>Decrementing</button>
-        <button onClick={props.decrementAsync} disabled={props.isDecrementing}>Decrement Async</button>
-      </p>
-
-      <p><button onClick={() => props.changePage()}>Go to about page via redux</button></p>
-    </div>
-);
-
-const mapStateToProps = state => ({
-  count: state.counter.count,
-  isIncrementing: state.counter.isIncrementing,
-  isDecrementing: state.counter.isDecrementing
-})
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  increment, incrementAsync, decrement, decrementAsync,
-  changePage: () => push('about')
-}, dispatch)
-
-export default connect (
-  mapStateToProps,
-  mapDispatchToProps
-)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

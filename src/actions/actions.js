@@ -2,18 +2,18 @@ import dataHandler from './../data/dataHandler.js'
 import userDataHandler from './../data/userDataHandler.js'
 import awardData from './../data/awardData.json'
 
-export var updateLeagueSeason = season => {
+export var updateLeagueSeason = leagueDataSeasonSelected => {
   return {
-    type: "UPDATE_LEAGUE_SEASON",
-    season
+    type: "UPDATE_LEAGUE_SEASON_SELECTED",
+    leagueDataSeasonSelected
   };
 };
 
 
-export var updateLeagueStatistics = stat => {
+export var updateLeagueStatistics = leagueDataStatSelected => {
   return {
-    type: "UPDATE_LEAGUE_STATISTICS",
-    stat
+    type: "UPDATE_LEAGUE_STATISTIC_SELECTED",
+    leagueDataStatSelected
   };
 };
 
@@ -23,10 +23,17 @@ export var updateTrophy = trophy => {
     trophy
   };
 };
-export var generateLeagueStatistics = (includeRegularSeason, includePlayoffs) => {
+export var setRegularOrPlayoffsSelected = (regularOrPlayoffsSelected) => {
+  return {
+    type: "SET_REGULAR_OR_PLAYOFF_SELECTED",
+    regularOrPlayoffsSelected
+  }
+}
+
+export var generateLeagueStatistics = (includeRegularSeason, includePlayoffs, seasonSelected) => {
   return (dispatch) => {
   dispatch(isGeneratingLeagueStatistics())
-  dataHandler.run(includeRegularSeason, includePlayoffs).then((data) => {
+  dataHandler.run(includeRegularSeason, includePlayoffs,seasonSelected).then((data) => {
     dispatch ({
       type: "GENERATE_LEAGUE_STATISTICS",
       data
@@ -52,24 +59,24 @@ export var generateUserStatistics = (includeRegularSeason, includePlayoffs, seas
  }
 };
 
-export var updateUserStatistics = stat => {
+export var updateUserStatistics = userDataStatSelected => {
   return {
-    type: "UPDATE_USER_STATISTICS",
-    stat
+    type: "UPDATE_USER_STATISTIC_SELECTED",
+    userDataStatSelected
   };
 };
 
-export var updateUserSeasons = seasons => {
+export var updateUserSeasons = userDataSeasonsSelected => {
   return {
-    type: "UPDATE_USER_SEASONS",
-    seasons
+    type: "UPDATE_USER_SEASONS_SELECTED",
+    userDataSeasonsSelected
   };
 };
 
-export var updateUserUsers = users => {
+export var updateUserUsers = userDataUsersSelected => {
   return {
-    type: "UPDATE_USER_USERS",
-    users
+    type: "UPDATE_USER_DATA_USERS_SELECTED",
+    userDataUsersSelected
   };
 };
 

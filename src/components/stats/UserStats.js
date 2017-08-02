@@ -11,28 +11,6 @@ import "./../../style/Stats/stats.css";
 import BarChart from "./../charts/BarChart.js";
 
 export class UserStats extends React.Component {
-  renderData = () => {
-    var statToRender = this.props.stats;
-    var d = this.props.renderData;
-
-    if (d.completed) {
-      var dataToRender = { data: [] };
-
-      dataToRender.data.sort();
-      return Object.keys(d.users.users).map(user => {
-        if (this.props.users.includes(user)) {
-          return (
-            <h1 key={user}>
-              {user} - {d.users.users[user][statToRender]}
-            </h1>
-          );
-        }
-      });
-    } else {
-      return <p>Nothing To Render</p>;
-    }
-  };
-
   render() {
     // {this.renderData()}
     return (
@@ -48,7 +26,7 @@ export class UserStats extends React.Component {
                   <span className="trophy-title">Trophy Room</span>
                   <div className="chart-container">
 
-                    <BarChart dataToDisplay ="user"/>
+                    <BarChart dataToDisplay="user" />
 
                   </div>
                 </div>
@@ -64,10 +42,6 @@ export class UserStats extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  stats: state.userStatsReducer.statistics,
-  seasons: state.userStatsReducer.seasons,
-  users: state.userStatsReducer.users,
-  renderData: state.userStatsGenerationReducer.data,
   isGenerating: state.seasonStatsGenerationReducer.isGenerating
 });
 

@@ -1,0 +1,70 @@
+
+.parallax {
+    /* The image used */
+    background-image: url('./../assets/mansion.jpg');
+
+
+    /* Set a specific height */
+    height: 100vh;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -20px;
+    opacity: 50%;
+
+}
+
+.opacity {
+  background-color: white
+}
+.title {
+  text-align: center;
+  margin-top: 20px;
+  color:black;
+  opacity: 100%;
+  background-color: rgba(119,36,50,0);
+  border-radius: 4px;
+
+}
+.container .jumbotron, .container-fluid .jumbotron {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.jumbotron .h1, .jumbotron h1 {
+  color: rgb(119,36,50);
+  font-size: 13rem;
+  font-weight: bold;
+  text-shadow: 3px 3px rgba(167,158,112, .6);
+}
+
+.jumbotron .h1, .jumbotron h3 {
+  font-size: 8rem;
+  color: rgb(119,36,50);
+  text-shadow: 2px 2px rgba(167,158,112, .7);
+
+}
+
+
+
+.hover-container:hover h1{
+  -webkit-transition: text-shadow .5s ease;
+-moz-transition: text-shadow .5s ease;
+-o-transition: text-shadow .5s ease;
+transition: text-shadow .5s ease;
+  text-shadow: 4px 4px rgb(167,158,112);
+}
+.hover-container:hover h3{
+  -webkit-transition: text-shadow .5s ease;
+-moz-transition: text-shadow .5s ease;
+-o-transition: text-shadow .5s ease;
+transition: text-shadow .5s ease;
+  text-shadow: 3px 3px rgb(167,158,112);
+}
+.disable-scroll{
+  overflow: hidden;
+
+}
