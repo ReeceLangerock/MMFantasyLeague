@@ -1,5 +1,4 @@
 var data = require("./data.json");
-const NUM_SEASONS = 5;
 var highestScore = [
   {
     data: [
@@ -20,6 +19,7 @@ var highestScore = [
         week: ""
       }
     ]
+
   },
   {
     data: [
@@ -641,10 +641,9 @@ module.exports = {
     var margin = weekData["points-scored"] - weekData["points-allowed"];
 
     if (season === 0) {
-      //console.log("Score 1: " +weekData["points-scored"] + "|| Score 2:"+ weekData['points-allowed']+ "|| margin: "+ margin)
     }
     if (largestMargin[season].data[lowestIndex].margin < margin) {
-      if (largestMargin[season].data.length === 5) {
+      if (largestMargin[season].data.length === 10) {
         largestMargin[season].data.splice(lowestIndex, 1);
       }
       largestMargin[season].data.push({
@@ -669,7 +668,7 @@ module.exports = {
     var margin = weekData["points-scored"] - weekData["points-allowed"];
 
     if (smallestMargin[season].data[largestIndex].margin > margin && margin > 0) {
-      if (smallestMargin[season].data.length === 5) {
+      if (smallestMargin[season].data.length === 10) {
         smallestMargin[season].data.splice(largestIndex, 1);
       }
       smallestMargin[season].data.push({
@@ -721,7 +720,7 @@ module.exports = {
     }
 
     if (lowestScore[season].data[highestIndex].score > weekData["points-scored"]) {
-      if (lowestScore[season].data.length === 5) {
+      if (lowestScore[season].data.length === 10) {
         lowestScore[season].data.splice(highestIndex, 1);
       }
       lowestScore[season].data.push({
@@ -748,7 +747,7 @@ module.exports = {
     }
 
     if (worstWins[season].data[highestIndex].score > weekData["points-scored"] && weekData["points-scored"] > weekData["points-allowed"]) {
-      if (worstWins[season].data.length === 5) {
+      if (worstWins[season].data.length === 10) {
         worstWins[season].data.splice(highestIndex, 1);
       }
       worstWins[season].data.push({
@@ -772,7 +771,7 @@ module.exports = {
     }
 
     if (bestLosses[season].data[lowestIndex].score < weekData["points-scored"] && weekData["points-scored"] < weekData["points-allowed"]) {
-      if (bestLosses[season].data.length === 5) {
+      if (bestLosses[season].data.length === 10) {
         bestLosses[season].data.splice(lowestIndex, 1);
       }
       bestLosses[season].data.push({
@@ -800,12 +799,11 @@ module.exports = {
       for (uI = 0; uI < data.users.length; uI++) {
         var userName = data.users[uI].name;
         for (sI = 0; sI < data.users[uI].season.length - 1; sI++) {
-          console.log(season == sI);
-          if (season == sI) {
+          if (parseInt(season,10) === sI) {
 
             if (includeRegularSeason) {
               for (rI = 0; rI < data.users[uI].season[sI][rS].length; rI++) {
-                var dataToCheck = data.users[uI].season[sI][rS][rI];
+                let dataToCheck = data.users[uI].season[sI][rS][rI];
                 that.checkHighestScore(dataToCheck, sI, userName, "Regular Season");
                 that.checkLowestScore(dataToCheck, sI, userName, "Regular Season");
                 that.calculateLargestMargins(dataToCheck, sI, userName, "Regular Season");
@@ -816,7 +814,7 @@ module.exports = {
             }
             if (includePlayoffs) {
               for (pI = 0; pI < data.users[uI].season[sI][pS].length; pI++) {
-                var dataToCheck = data.users[uI].season[sI][pS][pI];
+                let dataToCheck = data.users[uI].season[sI][pS][pI];
                 that.checkHighestScore(dataToCheck, sI, userName, "Playoffs");
                 that.checkLowestScore(dataToCheck, sI, userName, "Playoffs");
                 that.calculateLargestMargins(dataToCheck, sI, userName, "Playoffs");
@@ -828,7 +826,6 @@ module.exports = {
           }
         }
       }
-      console.log(highestScore)
       resolve({
         highestScore,
         lowestScore,
@@ -840,6 +837,5 @@ module.exports = {
       });
     });
 
-    //console.log(lowestScore);
   }
 };

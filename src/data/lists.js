@@ -1,4 +1,4 @@
-const SEASONS = [{ season: 2016, id: 4 }, { season: 2015, id: 3 }, { season: 2014, id: 2 }, { season: 2013, id: 1 }, { season: 2013, id: 0 }];
+const SEASONS = [{ season: 2016, id: 4 }, { season: 2015, id: 3 }, { season: 2014, id: 2 }, { season: 2013, id: 1 }, { season: 2012, id: 0 }];
 
 const USER_LIST = [
   {
@@ -99,11 +99,12 @@ const USER_STAT_CATEGORY_LIST = [
   {
     name: "win-percentage",
     formattedName: "Win Percentage"
-  },
-  {
-    name: "what-if-record",
-    formattedName: "'What If' Record"
   }
+  //,
+  // {
+  //   name: "what-if-record",
+  //   formattedName: "'What If' Record"
+  // }
 ];
 
 const LEAGUE_STAT_CATEGORY_LIST = [

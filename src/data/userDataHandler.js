@@ -1,7 +1,5 @@
 var data = require("./data.json");
 var awardData = require("./awardData.json");
-const NUM_SEASONS = 5;
-
 
 var users = {
   users: {
@@ -377,19 +375,19 @@ module.exports = {
     for (var key in awards) {
       if (awards.hasOwnProperty(key)) {
         for (let i = 0; i < awards[key].season.length; i++) {
-          var awardUser = awards[key].season[i].user;
+          let awardUser = awards[key].season[i].user;
           if (key === "Weekly Points Champion") {
             for (let j = 0; j < awards[key].season[i].users.length; j++) {
-              var awardUser = awards[key].season[i].users[j]["user-name"];
-              var earnings = awards[key].season[i].users[j]["total-payout"];
+              awardUser = awards[key].season[i].users[j]["user-name"];
+              let earnings = awards[key].season[i].users[j]["total-payout"];
 
               if (awardUser !== "" && earnings) {
                 users.users[awardUser].earnings += earnings;
               }
             }
           } else {
-            var awardUser = awards[key].season[i].user;
-            var earnings = awards[key].season[i].payout;
+            awardUser = awards[key].season[i].user;
+            let earnings = awards[key].season[i].payout;
 
             if (awardUser !== "" && earnings) {
               users.users[awardUser].earnings += earnings;
@@ -436,7 +434,7 @@ module.exports = {
             if (seasons.includes(sI)) {
               if (includeRegularSeason) {
                 for (rI = 0; rI < data.users[uI].season[sI][rS].length; rI++) {
-                  var dataToCheck = data.users[uI].season[sI][rS][rI];
+                  let dataToCheck = data.users[uI].season[sI][rS][rI];
                   that.calculateHighScores(dataToCheck, sI, userName, "R");
                   that.calculateLowScores(dataToCheck, sI, userName, "R");
                   that.calculateWinsAndLosses(dataToCheck, sI, userName, "R");
@@ -445,7 +443,7 @@ module.exports = {
               }
               if (includePlayoffs) {
                 for (pI = 0; pI < data.users[uI].season[sI][pS].length; pI++) {
-                  var dataToCheck = data.users[uI].season[sI][pS][pI];
+                  let dataToCheck = data.users[uI].season[sI][pS][pI];
                   that.calculateHighScores(dataToCheck, sI, userName, "P");
                   that.calculateLowScores(dataToCheck, sI, userName, "P");
                   that.calculateWinsAndLosses(dataToCheck, sI, userName, "P");
@@ -460,13 +458,10 @@ module.exports = {
       }
 
       that.calculateEarnings();
-      console.log("users", users);
       resolve({
         users,
         completed: true
       });
     });
-
-    //console.log(lowestScore);
   }
 };
