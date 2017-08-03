@@ -1,0 +1,61 @@
+.section-header {
+  font-family: Gotham;
+  color: #616161;
+
+
+}
+
+.section-header:hover{
+
+  color: rgb(119,36,50);
+}
+
+.rules-title {
+  font-size: 3.5rem;
+  color: rgb(119,36,50);
+  margin: 15px 5px 15px 5px;
+
+  font-family: Gotham;
+}
+
+.rules-section-container {
+  margin: 15px 5px 15px 5px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 3px;
+  transition: box-shadow .3s ease-in-out;
+  background-color: #fff;
+  padding: 10px 7px 10px 7px;
+  word-wrap: break-word;
+
+
+
+}
+
+.rules-section-container:hover{
+  box-shadow: 0 10px 20px rgba(119,36,50,0.19), 0 6px 6px rgba(119,36,50,0.23);
+  color: rgb(119,36,50);
+  -webkit-transition: box-shadow font-color .5 ease;
+-moz-transition: box-shadow font-color .5 ease;
+-o-transition: box-shadow font-color .5 ease;
+transition: box-shadow font-color .5 ease;
+
+}
+
+.rules-section-container:hover .section-header{
+
+  color: rgb(119,36,50);
+
+  -webkit-transition: box-shadow  text-shadow  font-color color .5 ease;
+-moz-transition: box-shadow text-shadow  font-color .5 ease;
+-o-transition: box-shadow text-shadow  font-color .5 ease;
+transition: box-shadow text-shadow  font-color .5 ease;
+text-shadow: -1px -1px 0 #2DD785,
+    2px -1px 0 #2DD785,
+    -1px 10px 0 #2DD785,
+    1px 1px 0 #2DD785 rgb(119,36,50);
+}
+
+.rules-section-container h3, h5{
+  font-family: Gotham;
+
+}

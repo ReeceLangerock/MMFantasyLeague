@@ -5,6 +5,13 @@ diD.App {
 body{
 background-color: #f7f7f7
 }
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 40px;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -33,16 +40,34 @@ background-color: #f7f7f7
 
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
   background-color: rgb(119,36,50);
+  color: rgba(167,158,112, .8);
+}
 
+.navbar-inverse .navbar-nav>li>a {
+  font-family: Gotham;
+  color: rgba(167,158,112, .8);
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+  font-family: Gotham;
+  color: rgba(167,158,112, 1);
+}
+.navbar-inverse .navbar-brand {
+  color: rgba(167,158,112, .8);
+}
+
+.navbar-inverse .navbar-brand:hover {
+  color: rgba(167,158,112, 1);
 }
 
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
-  background-color: rgba(139,110,74, .75)
+  background-color: rgba(139,110,74, .75);
 
 
 }
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
   background-color: rgba(119,36,50, 0.1);
+
 
 }
 
@@ -58,8 +83,9 @@ background-color: #f7f7f7
 }
 
 .data-selection-container {
-
   margin: 2px 5px 2px 5px;
+  align-items: center;
+  flex-grow: 0;
 
 
 }
@@ -77,8 +103,47 @@ background-color: #f7f7f7
 }
 
 
-
-
 .accordion-button-container {
   display: flex;
 justify-content: space-between;}
+
+
+
+@media (max-width: 1000px) {
+  .stat-selection-container {
+order: 2;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: center;
+
+  }
+  .span-col {
+    flex-wrap: nowrap;
+  }
+
+  .stats-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:10px;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .span-col {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stats-container {
+    margin:0;
+
+  }
+
+  .container-fluid {
+    margin: 0px;
+  }
+
+
+
+}

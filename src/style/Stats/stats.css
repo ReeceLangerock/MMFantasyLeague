@@ -16,15 +16,19 @@
 
 .span-col {
   display: flex;
+
+
   flex-wrap: wrap;
+
   justify-content: space-between;
 
 }
 .stat-selection-container {
-  flex-wrap: wrap;
+
   display: flex;
   flex-direction: column;
   margin: 5px 12px 5px 5px;
+
 flex-grow: 0;
 
 
@@ -32,7 +36,9 @@ flex-grow: 0;
 }
 
 .stat-span {
-  min-width: 185px;
+
+
+  width: 185px;
     margin: 2px 1px 2px 1px;
   border:none;
   padding: 0px 12px 0px 6px;
@@ -56,19 +62,19 @@ border: 1px solid rgba(119,36,50,0.25);
 }
 
 .chart-section-container {
-flex-grow: 1;
-  margin: 5px;
-  align-self: flex-start;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  border-radius: 2px;
-  transition: box-shadow .3s ease-in-out;
-  background-color: #fff;
-  margin: 5px 5px 5px 12px;
-  font-size: 18px;
-  border: 1px solid rgba(119,36,50,0.25);
+    flex-grow: 1;
+    margin: 5px;
+    align-self: flex-start;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 2px;
+    transition: box-shadow .3s ease-in-out;
+    background-color: #fff;
+    margin: 5px 5px 5px 12px;
+    font-size: 18px;
+    border: 1px solid rgba(119,36,50,0.25);
 
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
 
 }

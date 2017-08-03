@@ -40,6 +40,8 @@ hr {
 }
 
 .trophy-button-title {
+  font-family: Gotham;
+  
   min-width: 200px;
   border:none;
   padding: 0px 24px 0px 12px;
@@ -55,6 +57,8 @@ hr {
 }
 
 .trophy-title {
+  font-family: Gotham;
+
   min-width: 200px;
   border:none;
   padding: 0px 24px 0px 12px;
