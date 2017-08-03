@@ -6,7 +6,7 @@ const TrophyRoom = props => (
     <span>{props.user}</span>
 
     <span  className = "trophy-image">
-      <img src={require("./../../assets/trophy.jpg")} />
+      <img alt="Trophy" src={require("./../../assets/trophy.jpg")} />
 
     </span>
     <span className="trophy-item-title">

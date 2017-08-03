@@ -1,18 +1,15 @@
 import React from "react";
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-//import { render } from "react-dom";
-//import { bindActionCreators } from "redux";
-//import { connect } from "react-redux";
 
 class Navigation extends React.Component {
   render() {
     return (
       <header>
-        <Navbar inverse collapseOnSelect >
+        <Navbar inverse collapseOnSelect>
           <Navbar.Header>
             <LinkContainer to="/">
-              <Navbar.Brand >
+              <Navbar.Brand>
                 Mansion Men
               </Navbar.Brand>
             </LinkContainer>
@@ -39,7 +36,10 @@ class Navigation extends React.Component {
               </NavDropdown>
             </Nav>
             <Nav pullRight>
-              <NavItem eventKey={1} href="#">Link Right</NavItem>
+              <LinkContainer to="/draftboard">
+              <NavItem eventKey={1} >Draftboard</NavItem>
+            </LinkContainer>
+
             </Nav>
           </Navbar.Collapse>
         </Navbar>

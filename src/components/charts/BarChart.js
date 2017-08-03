@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as V from "victory";
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryLabel, VictoryTooltip } from "victory";
-class BarChart extends Component {
-  constructor(props) {
-    super(props);
-  }
-  componentDidMount() {}
-  componentDidUpdate() {}
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from "victory";
+import lists from "./../../data/lists.js";
 
+class BarChart extends Component {
   calculateLeagueDate() {
     var statToRender = this.props.leagueDataStatSelected;
     var season = this.props.leagueDataSeasonSelected;
     var data = this.props.leagueData;
     var xLabel = "";
+    lists.getLeagueStatList().map(stat => {
+      if (stat.name === this.props.leagueDataStatSelected) {
+        xLabel = stat.formattedName;
+
+      }
+      return 0;
+    });
     var chartIndex = [];
     var chartLabel = [];
     var chartData = [];
@@ -22,35 +24,39 @@ class BarChart extends Component {
     if (data.completed) {
       Object.keys(data).map(stat => {
         if (stat === statToRender) {
-          xLabel = stat;
-
           for (let j = 0; j < data[stat][season].data.length; j++) {
             if (data[stat][season].data[j].score) {
               var dataPoint = data[stat][season].data[j];
               //saved for if i figure out multiple labels
               // label: `${dataPoint.regularOrPlayoffs}, Week ${dataPoint.week}\nOpponent: ${dataPoint.opponent}` }
 
-              chartData.push({ x: realIndex, y: dataPoint.score, width: 10 });
+              chartData.push({ x: realIndex, y: dataPoint.score, width: 10, user: data[stat][season].data[j].user });
 
               chartLabel.push(data[stat][season].data[j].user);
             } else {
-              chartData.push({ x: realIndex, y: data[stat][season].data[j].margin, width: 10 });
+              chartData.push({ x: realIndex, y: data[stat][season].data[j].margin, width: 10, user: data[stat][season].data[j].user });
             }
             chartIndex.push(realIndex);
 
             realIndex++;
           }
         }
+        return 0;
       });
     }
-    console.log("chartData", chartData);
+
     return { chartData, chartIndex, chartLabel, xLabel };
   }
   calculateUserDate() {
     var statToRender = this.props.userDataStatSelected;
     var data = this.props.userData;
-    var xLabel = this.props.userDataStatSelected;
-
+    var xLabel = "";
+    lists.getUserStatList().map(stat => {
+      if (stat.name === this.props.userDataStatSelected) {
+        xLabel = stat.formattedName;
+      }
+      return 0;
+    });
     var chartIndex = [];
     var chartLabel = [];
     var chartData = [];
@@ -61,13 +67,15 @@ class BarChart extends Component {
           chartIndex.push(realIndex);
           chartLabel.push(user);
           if (data.users.users[user][statToRender] === 1000) {
-            chartData.push({ x: realIndex, y: 0, width: 10 });
+            chartData.push({ x: realIndex, y: 0, width: 10, user: user });
           } else {
-            chartData.push({ x: realIndex, y: data.users.users[user][statToRender], width: 6 });
+            chartData.push({ x: realIndex, y: data.users.users[user][statToRender], width: 6, user: user });
           }
           realIndex++;
         }
+        return 0;
       });
+
     }
 
     return { chartData, chartIndex, chartLabel, xLabel };
@@ -75,11 +83,25 @@ class BarChart extends Component {
 
   render() {
     // const data = this.dataToRender();
+
     if (this.props.dataToDisplay === "user") {
+      // eslint-disable-next-line
       var { chartIndex, chartLabel, chartData, xLabel } = this.calculateUserDate();
+      chartLabel = [];
+      chartData.sort((a, b) => b.y - a.y);
+      for (let i = chartData.length - 1; i >= 0; i--) {
+        chartData[i].x = i + 1;
+        chartLabel[i] = chartData[i].user;
+      }
     } else if (this.props.dataToDisplay === "league") {
+      // eslint-disable-next-line
       var { chartIndex, chartLabel, chartData, xLabel } = this.calculateLeagueDate();
-      console.log(chartData);
+      chartLabel = [];
+      chartData.sort((a, b) => b.y - a.y);
+      for (let i = chartData.length - 1; i >= 0; i--) {
+        chartData[i].x = i + 1;
+        chartLabel[i] = chartData[i].user;
+      }
     }
 
     // labelComponent={<VictoryTooltip/>}
@@ -87,7 +109,6 @@ class BarChart extends Component {
       <VictoryChart
         width={800}
         height={400}
-
         animate={{
           duration: 1000,
           easing: "bounce"
@@ -95,15 +116,9 @@ class BarChart extends Component {
         // adding the material theme provided with Victory
         domainPadding={{ x: 20, y: 0 }}
         padding={{ top: 40, bottom: 40, left: 60, right: 20 }}
-
       >
-        <VictoryAxis
-          tickValues={chartIndex}
-          tickFormat={chartLabel}
-          style={{ tickLabels: { fontSize: 10, angle: -60 } }}
-
-        />
-        <VictoryAxis dependentAxis tickFormat={x => x} label={xLabel}   axisLabelComponent={<VictoryLabel dy={-20}/>} />
+        <VictoryAxis tickValues={chartIndex} tickFormat={chartLabel} style={{ tickLabels: { fontSize: 10, angle: -60 } }} />
+        <VictoryAxis dependentAxis tickFormat={x => x} label={xLabel} axisLabelComponent={<VictoryLabel dy={-20} />} />
         <VictoryBar
           style={{
             data: {

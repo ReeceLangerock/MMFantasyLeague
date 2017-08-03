@@ -3,14 +3,17 @@ import { push } from "react-router-redux";
 import { bindActionCreators } from "redux";
 import { Jumbotron } from "react-bootstrap";
 import { connect } from "react-redux";
+
+
 import "./../../style/Home.css";
 
 export class Home extends React.Component {
   componentWillMount() {
-    console.log('will', document.body.classList)
+
     document.body.classList.add('disable-scroll')
   }
   componentWillUnmount(){
+
     document.body.classList.remove('disable-scroll')
 
   }
@@ -20,7 +23,7 @@ export class Home extends React.Component {
         <div className="container">
           <div className = "hover-container">
           <Jumbotron className="title">
-        
+
             <h1 className = "title-font">Mansion Men</h1>
             <h3>Official Home of the Mansion Men Fantasy Football League</h3>
 
