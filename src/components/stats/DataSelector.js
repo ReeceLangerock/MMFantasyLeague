@@ -1,4 +1,3 @@
-"use strict";
 //EVENTUALLY BREAK THIS OUT TO COMPONENT TO USE WITH BOTH STAT PAGES
 import React from "react";
 import {
@@ -14,7 +13,6 @@ import {
 } from "../../actions/actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { DropdownButton, PageHeader, MenuItem, Button, Accordion, Panel, PanelGroup, Label } from "react-bootstrap";
 import lists from "./../../data/lists.js";
 
 class DataSelector extends React.Component {
@@ -69,23 +67,21 @@ class DataSelector extends React.Component {
         seasonSpans[i].classList.remove("stat-span-active");
       }
       var seasonSelected = e.target.getAttribute("data-season");
-      console.log(seasonSelected);
     }
     e.target.classList.toggle("stat-span-active");
 
-    var seasonSpans = document.getElementsByName("seasonSpan");
     var seasonsSelected = [];
     for (let i = 0; i < seasonSpans.length; i++) {
       if (seasonSpans[i].classList.contains("stat-span-active")) {
-        seasonsSelected.push(parseInt(seasonSpans[i].getAttribute("data-season")));
+        seasonsSelected.push(parseInt(seasonSpans[i].getAttribute("data-season"),10));
       }
     }
 
-    this.props.updateUserSeasons(seasonsSelected);
-    this.props.updateLeagueSeason(seasonSelected);
     if (this.props.dataSelectorToRender === "user") {
+      this.props.updateUserSeasons(seasonsSelected);
       this.props.generateUserStatistics(this.props.regularOrPlayoffsSelected[0], this.props.regularOrPlayoffsSelected[1], seasonsSelected, this.props.userDataUsersSelected);
     } else {
+      this.props.updateLeagueSeason(seasonSelected);
       this.props.generateLeagueStatistics(this.props.regularOrPlayoffsSelected[0], this.props.regularOrPlayoffsSelected[1], seasonSelected);
     }
   }
@@ -266,17 +262,16 @@ class DataSelector extends React.Component {
     }
     return twoSeasons.map((season, index) => {
       var seasonKey = `season${index}`;
-
+      var style0, style1 = "";
       if (index === 0 && this.props.dataSelectorToRender === "league") {
-        var style0 = "stat-span stat-span-active";
-        var style1 = "stat-span";
+        style0 = "stat-span stat-span-active";
+        style1 = "stat-span";
       } else if (index !== 0 && this.props.dataSelectorToRender === "league") {
-        console.log("im here");
-        var style0 = "stat-span";
-        var style1 = "stat-span";
+        style0 = "stat-span";
+        style1 = "stat-span";
       } else {
-        var style0 = "stat-span stat-span-active";
-        var style1 = "stat-span stat-span-active";
+        style0 = "stat-span stat-span-active";
+        style1 = "stat-span stat-span-active";
       }
 
       if (season.length === 2) {
@@ -308,10 +303,14 @@ class DataSelector extends React.Component {
   render() {
     return (
       <div className="stat-selection-container">
+        <div className="data-selection-container">
         <span className="trophy-button-title">Season</span>
 
         {this.renderSeasonSpans()}
         <hr />
+
+      </div>
+        <div className="data-selection-container">
         <span className="trophy-button-title">Regular and/or Playoffs</span>
 
         <div className="span-col">
@@ -324,7 +323,9 @@ class DataSelector extends React.Component {
           </span>
         </div>
         <hr />
+      </div>
 
+<div className="data-selection-container">
         {this.props.dataSelectorToRender === "user" &&
           <div className="data-selection-container">
             <h5>Users</h5>
@@ -333,6 +334,7 @@ class DataSelector extends React.Component {
             {this.renderLegacyUserSpans()}
             <hr />
           </div>}
+        </div>
 
         <div className="data-selection-container">
           <h5>Statistics</h5>
@@ -369,8 +371,5 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-var t0 = performance.now();
 
-var t1 = performance.now();
-console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
 export default connect(mapStateToProps, mapDispatchToProps)(DataSelector);
