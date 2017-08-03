@@ -1,6 +1,6 @@
 import dataHandler from './../data/dataHandler.js'
 import userDataHandler from './../data/userDataHandler.js'
-import awardData from './../data/awardData.json'
+
 
 export var updateLeagueSeason = leagueDataSeasonSelected => {
   return {

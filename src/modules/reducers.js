@@ -2,14 +2,6 @@ import awardData from "./../data/awardData.json";
 
 //REDUCERS
 //----------------
-const initialState = {
-  count: 0,
-  isIncrementing: false,
-  isDecrementing: false,
-  season: 0,
-  statistics: "highestScore"
-};
-
 export var dataSelectionReducer = (
   state = {
     leagueDataStatSelected: "highestScore",
