@@ -67,6 +67,32 @@ export var seasonStatsGenerationReducer = (state = { isGenerating: false, neithe
   }
 };
 
+export var h2hDataReducer = (state = { homeUser: "Ryan Coxe", awayUser: "Kevin Dobkin" }, action) => {
+  switch (action.type) {
+    case "UPDATE_SELECTED_HOME_USER":
+      return { ...state, homeUser: action.homeUser };
+
+    case "UPDATE_SELECTED_AWAY_USER":
+      return { ...state, awayUser: action.awayUser };
+
+    default:
+      return state;
+  }
+};
+
+export var h2hStatsGenerationReducer = (state = { isGenerating: false, data: {} }, action) => {
+  switch (action.type) {
+    case "TOGGLE_ISGENERATING_H2H_STATISTICS":
+      return { ...state, isGenerating: !state.isGenerating };
+
+    case "GENERATE_H2H_STATISTICS":
+      return { ...state, data: action.data };
+
+    default:
+      return state;
+  }
+};
+
 export var userStatsGenerationReducer = (state = { isGenerating: false, data: {} }, action) => {
   switch (action.type) {
     case "TOGGLE_ISGENERATING_USER_STATISTICS":
