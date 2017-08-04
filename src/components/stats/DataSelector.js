@@ -73,7 +73,7 @@ class DataSelector extends React.Component {
     var seasonsSelected = [];
     for (let i = 0; i < seasonSpans.length; i++) {
       if (seasonSpans[i].classList.contains("stat-span-active")) {
-        seasonsSelected.push(parseInt(seasonSpans[i].getAttribute("data-season"),10));
+        seasonsSelected.push(parseInt(seasonSpans[i].getAttribute("data-season"), 10));
       }
     }
 
@@ -304,28 +304,28 @@ class DataSelector extends React.Component {
     return (
       <div className="stat-selection-container">
         <div className="data-selection-container">
-        <span className="trophy-button-title">Season</span>
+          <span className="trophy-button-title">Season</span>
 
-        {this.renderSeasonSpans()}
-        <hr />
+          {this.renderSeasonSpans()}
+          <hr />
 
-      </div>
-        <div className="data-selection-container">
+        </div>
         <span className="trophy-button-title">Regular and/or Playoffs</span>
 
-        <div className="span-col">
+        <div className="data-selection-container">
 
-          <span className="stat-span stat-span-active" name="playoffRegular" id="regular" data-pr="regular" onClick={this.handleRegOrPlayoff}>
-            Regular Season
-          </span>
-          <span className="stat-span" name="playoffRegular" id="playoffs" data-pr="playoffs" onClick={this.handleRegOrPlayoff}>
-            Playoffs
-          </span>
+          <div className="span-col">
+
+            <span className="stat-span stat-span-active" name="playoffRegular" id="regular" data-pr="regular" onClick={this.handleRegOrPlayoff}>
+              Regular Season
+            </span>
+            <span className="stat-span" name="playoffRegular" id="playoffs" data-pr="playoffs" onClick={this.handleRegOrPlayoff}>
+              Playoffs
+            </span>
+          </div>
+          <hr />
         </div>
-        <hr />
-      </div>
 
-<div className="data-selection-container">
         {this.props.dataSelectorToRender === "user" &&
           <div className="data-selection-container">
             <h5>Users</h5>
@@ -334,7 +334,6 @@ class DataSelector extends React.Component {
             {this.renderLegacyUserSpans()}
             <hr />
           </div>}
-        </div>
 
         <div className="data-selection-container">
           <h5>Statistics</h5>
@@ -370,6 +369,5 @@ const mapDispatchToProps = dispatch =>
     },
     dispatch
   );
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(DataSelector);
