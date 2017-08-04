@@ -66,7 +66,7 @@ export class TrophyRoom extends React.Component {
                   <span className="trophy-button" name="trophySpan" data-trophy="Points Winner" onClick={this.handleTrophySelection}>
                     Points Champion
                   </span>
-                  <span className="trophy-button" name="trophySpan" data-trophy="Regular Season Winner" onClick={this.handleTrophySelection}>
+                  <span className="trophy-button" name="trophySpan" data-trophy="Regular Season Champ" onClick={this.handleTrophySelection}>
                     Regular Season Champ
                   </span>
                   <hr />
