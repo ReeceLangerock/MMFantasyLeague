@@ -1,5 +1,118 @@
-var data = require("./data.json");
-var awardData = require("./awardData.json");
+const data = require("./data.json");
+const awardData = require("./awardData.json");
+
+const whatIf = {
+  "Ryan Coxe": {
+  season: [{
+    seasonNumber: 0,
+    ownScores: [],
+    otherScores: []
+
+  }]
+  },
+  "Kevin Dobkin": {
+  season: [{
+    seasonNumber: 0,
+    ownScores: [],
+    otherScores: []
+
+  }]
+
+  },
+  "Jason Knaak": {
+
+    season: [{
+      seasonNumber: 0,
+      ownScores: [],
+      otherScores: []
+
+    }]},
+  "JD Langefeld": {
+  season: [{
+    seasonNumber: 0,
+    ownScores: [],
+    otherScores: []
+
+  }]
+  },
+  "Reece Langerock": {
+
+    season: [{
+      seasonNumber: 0,
+      ownScores: [],
+      otherScores: []
+
+    }]},
+  "Dave Longwell": {
+
+    season: [{
+      seasonNumber: 0,
+      ownScores: [],
+      otherScores: []
+
+    }]},
+  "Jimmy Ouska": {
+
+    season: [{
+      seasonNumber: 0,
+      ownScores: [],
+      otherScores: []
+
+    }]
+  },
+  "Sean Quill": {
+
+    season: [{
+      seasonNumber: 0,
+      ownScores: [],
+      otherScores: []
+
+    }]
+  },
+  "Matt Reschke": {
+  season: [{
+    seasonNumber: 0,
+    ownScores: [],
+    otherScores: []
+
+  }]
+  },
+  "Bryan Steger": {
+  season: [{
+    seasonNumber: 0,
+    ownScores: [],
+    otherScores: []
+
+  }]
+  },
+  "Mike Unverricht": {
+  season: [{
+    seasonNumber: 0,
+    ownScores: [],
+    otherScores: []
+
+  }]
+  },
+  "Trey Ward": {
+  season: [{
+    seasonNumber: 0,
+    ownScores: [],
+    otherScores: []
+
+  }]
+  },
+  "Alex Warner": {
+  season: [{
+    seasonNumber: 0,
+    ownScores: [],
+    otherScores: []
+
+  }]
+
+  }
+}
+
+
 
 var users = {
   users: {
@@ -348,7 +461,7 @@ module.exports = {
       } else if (weekData["points-scored"] < weekData["points-allowed"]) {
         users.users[user].losses++;
       }
-     
+
   },
 
   calculateTotalPointsForAndAgainst(weekData, season, user, regularOrPlayoffs) {
@@ -399,6 +512,11 @@ module.exports = {
       }
     }
   },
+  populateWhatIf(weekData, season, user, regularOrPlayoffs){
+  },
+  calculateWhatIf() {
+
+  },
   run(
     includeRegularSeason,
     includePlayoffs,
@@ -429,6 +547,7 @@ module.exports = {
                   that.calculateLowScores(dataToCheck, sI, userName, "R");
                   that.calculateWinsAndLosses(dataToCheck, sI, userName, "R");
                   that.calculateTotalPointsForAndAgainst(dataToCheck, sI, userName, "R");
+                  that.populateWhatIf(dataToCheck, sI, userName, "R")
                 }
               }
               }
