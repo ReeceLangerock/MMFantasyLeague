@@ -40,6 +40,8 @@ export class TrophyRoom extends React.Component {
             <div className="col-md-12">
               <div className="trophy-room-container">
                 <div className="trophy-button-container">
+                  <div className="trophy-selection-container">
+
                   <span className="trophy-button-title">Playoffs</span>
                   <span className="trophy-button trophy-span-active" name="trophySpan" data-trophy="Champion" onClick={this.handleTrophySelection}>
                     Champion
@@ -57,6 +59,8 @@ export class TrophyRoom extends React.Component {
                     Points Champion
                   </span>
                   <hr />
+                </div>
+                <div className="trophy-selection-container">
 
                   <span className="trophy-button-title">Regular Season</span>
                   <span className="trophy-button" name="trophySpan" data-trophy="Points Winner" onClick={this.handleTrophySelection}>
@@ -66,11 +70,15 @@ export class TrophyRoom extends React.Component {
                     Regular Season Champ
                   </span>
                   <hr />
+                </div>
+                <div className="trophy-selection-container">
+
                   <span className="trophy-button-title">Shame</span>
                   <span className="trophy-button" name="trophySpan" data-trophy="Longwell Award Winner" onClick={this.handleTrophySelection}>
                     Longwell Cup Winner
                   </span>
                 </div>
+              </div>
 
                 <div className="trophy-section-container">
                   <span className="trophy-title">Trophy Room</span>
