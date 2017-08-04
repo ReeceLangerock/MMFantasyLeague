@@ -342,11 +342,13 @@ module.exports = {
   },
 
   calculateWinsAndLosses(weekData, season, user, regularOrPlayoffs) {
-    if (weekData["points-scored"] > weekData["points-allowed"]) {
-      users.users[user].wins++;
-    } else if (weekData["points-scored"] < weekData["points-allowed"]) {
-      users.users[user].losses++;
-    }
+
+      if (weekData["points-scored"] > weekData["points-allowed"]) {
+        users.users[user].wins++;
+      } else if (weekData["points-scored"] < weekData["points-allowed"]) {
+        users.users[user].losses++;
+      }
+     
   },
 
   calculateTotalPointsForAndAgainst(weekData, season, user, regularOrPlayoffs) {
@@ -401,20 +403,7 @@ module.exports = {
     includeRegularSeason,
     includePlayoffs,
     seasons = [0, 1, 2, 3, 4],
-    selectedUsers = [
-      "Ryan Coxe",
-      "Kevin Dobkin",
-      "Jason Knaak",
-      "JD Langefeld",
-      "Reece Langerock",
-      "Jimmy Ouska",
-      "Sean Quill",
-      "Matt Reschke",
-      "Bryan Steger",
-      "Mike Unverricht",
-      "Trey Ward",
-      "Alex Warner"
-    ]
+    selectedUsers = ["Ryan Coxe", "Kevin Dobkin", "Jason Knaak", "JD Langefeld", "Reece Langerock", "Jimmy Ouska", "Sean Quill", "Matt Reschke", "Bryan Steger", "Mike Unverricht", "Trey Ward", "Alex Warner"]
   ) {
     var that = this;
     that.clear();
@@ -435,11 +424,13 @@ module.exports = {
               if (includeRegularSeason) {
                 for (rI = 0; rI < data.users[uI].season[sI][rS].length; rI++) {
                   let dataToCheck = data.users[uI].season[sI][rS][rI];
+                  if(dataToCheck.opponent !== "Bye" && dataToCheck.opponent !== ""){
                   that.calculateHighScores(dataToCheck, sI, userName, "R");
                   that.calculateLowScores(dataToCheck, sI, userName, "R");
                   that.calculateWinsAndLosses(dataToCheck, sI, userName, "R");
                   that.calculateTotalPointsForAndAgainst(dataToCheck, sI, userName, "R");
                 }
+              }
               }
               if (includePlayoffs) {
                 for (pI = 0; pI < data.users[uI].season[sI][pS].length; pI++) {

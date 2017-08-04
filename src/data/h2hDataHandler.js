@@ -1688,12 +1688,7 @@ module.exports = {
       }
     };
   },
-  // ['Head-To-Head'][user].opponents[weekData.opponent][points-allowed-array].push(weekData['points-scored'])
-  calculateHighScores(weekData, season, user, regularOrPlayoffs) {
-    // if (users.users[user]["high-score"] < weekData["points-scored"]) {
-    //   users.users[user]["high-score"] = weekData["points-scored"];
-    // }
-  },
+  
   calculateHeadToHead(weekData, season, user, regularOrPlayoffs) {
     if (headToHead[user].opponents[weekData.opponent]) {
 

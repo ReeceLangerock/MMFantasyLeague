@@ -121,7 +121,7 @@
         }
       ]
     },
-    "Regular Season Winner": {
+    "Regular Season Champ": {
       "season": [
         {
           "year": 2012,
@@ -191,15 +191,15 @@
         },
         {
           "year": 2014,
-          "user": "Alex Warner"
+          "user": "Ryan Coxe"
         },
         {
           "year": 2015,
-          "user": ""
+          "user": "Alex Warner"
         },
         {
           "year": 2016,
-          "user": ""
+          "user": "Ryan Coxe"
         }
       ]
     },
@@ -215,15 +215,15 @@
         },
         {
           "year": 2014,
-          "user": "Sean Quill"
+          "user": "Reece Langerock"
         },
         {
           "year": 2015,
-          "user": ""
+          "user": "Bryan Steger"
         },
         {
           "year": 2016,
-          "user": ""
+          "user": "Bryan Steger"
         }
       ]
     },
