@@ -45,7 +45,9 @@ body {
 
 .navbar-inverse .navbar-nav>li>a {
   font-family: Gotham;
-  color: rgba(167,158,112, .8);
+  color:#f7f7f7;
+
+  /*color: rgba(167,158,112, .8);*/
 }
 
 .navbar-inverse .navbar-nav>li>a:hover {
@@ -53,7 +55,9 @@ body {
   color: rgba(167,158,112, 1);
 }
 .navbar-inverse .navbar-brand {
-  color: rgba(167,158,112, .8);
+  color:#f7f7f7;
+
+  /*color: rgba(167,158,112, .8);*/
 }
 
 .navbar-inverse .navbar-brand:hover {
@@ -80,70 +84,4 @@ body {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-.data-selection-container {
-  margin: 2px 5px 2px 5px;
-  align-items: center;
-  flex-grow: 0;
-
-
-}
-
-.button-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.button-child {
-  flex-grow: 1;
-  margin:2px;
-
-}
-
-
-.accordion-button-container {
-  display: flex;
-justify-content: space-between;}
-
-
-
-@media (max-width: 1000px) {
-  .stat-selection-container {
-order: 2;
-flex-wrap: wrap;
-flex-direction: row;
-justify-content: center;
-
-  }
-  .span-col {
-    flex-wrap: nowrap;
-  }
-
-  .stats-container {
-    flex-wrap: wrap;
-    justify-content: center;
-    margin:10px;
-  }
-}
-
-@media (max-width: 400px) {
-
-  .span-col {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .stats-container {
-    margin:0;
-
-  }
-
-  .container-fluid {
-    margin: 0px;
-  }
-
-
-
 }

@@ -16,9 +16,9 @@
 
 .span-col {
   display: flex;
-
-
+  flex-grow: 0;
   flex-wrap: wrap;
+  align-items: flex-start;
 
   justify-content: space-between;
 
@@ -28,7 +28,6 @@
   display: flex;
   flex-direction: column;
   margin: 5px 12px 5px 5px;
-
 flex-grow: 0;
 
 
@@ -38,7 +37,7 @@ flex-grow: 0;
 .stat-span {
 
 
-  width: 185px;
+  min-width: 185px;
     margin: 2px 1px 2px 1px;
   border:none;
   padding: 0px 12px 0px 6px;
@@ -85,10 +84,57 @@ border: 1px solid rgba(119,36,50,0.25);
 
 }
 
+@media (max-width: 1000px) {
+  .stat-selection-container {
+order: 2;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: center;
+
+  }
+  .span-col {
+    flex-wrap: nowrap;
+  }
+
+  .stats-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:10px;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .span-col {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stats-container {
+    margin:0;
+
+  }
+
+  .container-fluid {
+    margin: 0px;
+  }
+
+
+
+}
+
 
 .chart-container {
   margin:0px 24px 12px 12px;
   padding: 0px 10px 0px 10px;
 
   border:1px solid;
+}
+
+.data-selection-container {
+  margin: 2px 5px 2px 5px;
+  align-items: center;
+  flex-grow: 0;
+flex-shrink: 0;
+
 }
