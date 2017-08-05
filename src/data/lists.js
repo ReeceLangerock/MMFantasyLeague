@@ -100,11 +100,17 @@ const USER_STAT_CATEGORY_LIST = [
     name: "win-percentage",
     formattedName: "Win Percentage"
   }
-  //,
-  // {
-  //   name: "what-if-record",
-  //   formattedName: "'What If' Record"
-  // }
+  ,
+  {
+    name: "what-if-wins",
+    formattedName: "'What If' Wins"
+  },{
+    name: "what-if-losses",
+    formattedName: "'What If' Losses"
+  },{
+    name: "what-if-vs-actual",
+    formattedName: "'What If' vs Actual"
+  }
 ];
 
 const LEAGUE_STAT_CATEGORY_LIST = [
