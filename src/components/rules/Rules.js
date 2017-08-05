@@ -66,8 +66,18 @@ const Rules = props => (
             The Championship Tournament shall consist of 6 teams, including the champion of each League Division and 4 additional teams who shall own the greatest Regular Season record. If there is a tie in record, total points shall serve as tiebreaker.
             Each League Division Champion shall have a bye week in the first round of the Championship Tournament. The League Division Champion who owns a superior Regular Season Record shall be considered the 1 seed. The other League Division Champion shall be considered the 2 seed. The remaining 4 teams shall be seeded according to their Regular Season Record, with total points again serving as tiebreaker
           </p>
-          <p>The following is the Championship Tournament bracket.</p>
-          <img alt="Playoff Bracket" src="" />
+          <p>The following is the Championship Tournament bracket:</p>
+          <br />
+          <b>Round 1 (NFL Week 14)</b>
+          <p>3 vs 6</p>
+          <p>4 vs 5</p>
+
+          <b>Round 2 (NFL Week 15)</b>
+          <p>1 vs Lowest Remaining Seed</p>
+          <p>2 vs Highest Remaining Seed</p>
+
+          <b>Championship (NFL Week 16)</b>
+          <p>One Remaining Team vs Other Remaining Team</p>
 
           <p>
             The winner of the Championship matchup shall be considered the Mansion Men League Champion. The loser of the Championship matchup shall be considered 2nd place. Additional matchups shall determine 3rd-6th places in the Championship Tournament
