@@ -19,6 +19,7 @@ export class H2HDisplay extends React.Component {
         if (user === this.props.homeUser) {
           let opponent = this.props.awayUser;
           let dataset = data[user].opponents[opponent];
+          // CALCULATE DATA FOR H2H DISPLAY
           let averageScored = (dataset["points-scored-array"].reduce((total, num) => {
             return total + num.score}, 0) / dataset["points-scored-array"].length).toFixed(1);
           let averageAllowed = (dataset["points-allowed-array"].reduce((total, num) => {

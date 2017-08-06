@@ -2,19 +2,18 @@
   font-family: Gotham;
   color: #616161;
 
-
 }
 
 .section-header:hover{
 
   color: rgb(119,36,50);
+
 }
 
 .rules-title {
   font-size: 3.5rem;
   color: rgb(119,36,50);
   margin: 15px 5px 15px 5px;
-
   font-family: Gotham;
 }
 
@@ -26,8 +25,6 @@
   background-color: #fff;
   padding: 10px 7px 10px 7px;
   word-wrap: break-word;
-
-
 
 }
 
@@ -44,12 +41,11 @@ transition: box-shadow font-color .5 ease;
 .rules-section-container:hover .section-header{
 
   color: rgb(119,36,50);
-
   -webkit-transition: box-shadow  text-shadow  font-color color .5 ease;
--moz-transition: box-shadow text-shadow  font-color .5 ease;
--o-transition: box-shadow text-shadow  font-color .5 ease;
-transition: box-shadow text-shadow  font-color .5 ease;
-text-shadow: -1px -1px 0 #2DD785,
+  -moz-transition: box-shadow text-shadow  font-color .5 ease;
+  -o-transition: box-shadow text-shadow  font-color .5 ease;
+  transition: box-shadow text-shadow  font-color .5 ease;
+  text-shadow: -1px -1px 0 #2DD785,
     2px -1px 0 #2DD785,
     -1px 10px 0 #2DD785,
     1px 1px 0 #2DD785 rgb(119,36,50);

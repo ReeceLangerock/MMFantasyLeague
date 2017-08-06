@@ -2,23 +2,17 @@
   font-family: 'Gotham';
   src: url('./../assets/fonts/Gotham Book Regular.otf');
 }
+
 .parallax {
-    /* The image used */
+
     background-image: url('./../assets/mansion.jpg');
-
-
-    /* Set a specific height */
     height: 100vh;
-
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: -20px;
-
-
 }
 
 
@@ -31,6 +25,27 @@
   border-radius: 4px;
   font-family: Gotham;
 }
+
+.hover-container:hover h1{
+  -webkit-transition: text-shadow .5s ease;
+-moz-transition: text-shadow .5s ease;
+-o-transition: text-shadow .5s ease;
+transition: text-shadow .5s ease;
+  text-shadow: 4px 4px rgb(119,36,50);
+}
+.hover-container:hover h3{
+  -webkit-transition: text-shadow .5s ease;
+-moz-transition: text-shadow .5s ease;
+-o-transition: text-shadow .5s ease;
+transition: text-shadow .5s ease;
+  text-shadow: 3px 3px rgb(119,36,50);
+}
+.disable-scroll{
+  overflow: hidden;
+
+}
+
+/* BOOTSTRAP CSS OVERRIDES AND ADDITIONS*/
 .container .jumbotron, .container-fluid .jumbotron {
   padding-left: 20px;
   padding-right: 20px;
@@ -50,6 +65,8 @@
   font-family: Gotham;
 }
 
+
+/* RESPONSIVENESS FIXES */
 @media(max-width: 1000px){
 
   .jumbotron .h1, .jumbotron h1 {
@@ -60,7 +77,6 @@
     font-size: 6rem;
 
   }
-
 }
 
 @media(max-width: 600px){
@@ -73,25 +89,4 @@
     font-size: 4rem;
 
   }
-
-}
-
-
-.hover-container:hover h1{
-  -webkit-transition: text-shadow .5s ease;
--moz-transition: text-shadow .5s ease;
--o-transition: text-shadow .5s ease;
-transition: text-shadow .5s ease;
-  text-shadow: 4px 4px rgb(119,36,50);
-}
-.hover-container:hover h3{
-  -webkit-transition: text-shadow .5s ease;
--moz-transition: text-shadow .5s ease;
--o-transition: text-shadow .5s ease;
-transition: text-shadow .5s ease;
-  text-shadow: 3px 3px rgb(119,36,50);
-}
-.disable-scroll{
-  overflow: hidden;
-
 }

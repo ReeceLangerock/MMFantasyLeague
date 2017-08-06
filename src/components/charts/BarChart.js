@@ -13,7 +13,6 @@ class BarChart extends Component {
     lists.getLeagueStatList().map(stat => {
       if (stat.name === this.props.leagueDataStatSelected) {
         xLabel = stat.formattedName;
-
       }
       return 0;
     });
@@ -75,7 +74,6 @@ class BarChart extends Component {
         }
         return 0;
       });
-
     }
 
     return { chartData, chartIndex, chartLabel, xLabel };

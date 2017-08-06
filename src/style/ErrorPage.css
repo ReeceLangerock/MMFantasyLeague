@@ -1,3 +1,4 @@
+/* THIS IS FOR DRAFTBOARD COMPONENT */
 .iframe-container {
   width: 100%;
   position: relative;
@@ -66,8 +67,8 @@
   box-shadow: 0 10px 20px rgba(119,36,50,0.19), 0 6px 6px rgba(119,36,50,0.23);
   color: rgb(119,36,50);
   -webkit-transition: box-shadow font-color .5 ease;
--moz-transition: box-shadow font-color .5 ease;
--o-transition: box-shadow font-color .5 ease;
-transition: box-shadow font-color .5 ease;
+  -moz-transition: box-shadow font-color .5 ease;
+  -o-transition: box-shadow font-color .5 ease;
+  transition: box-shadow font-color .5 ease;
 
 }

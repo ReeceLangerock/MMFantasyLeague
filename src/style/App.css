@@ -1,6 +1,3 @@
-diD.App {
-  text-align: center;
-}
 
 body{
 background-color: #f7f7f7
@@ -13,21 +10,8 @@ body {
   margin-bottom: 40px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+/* BOOTSTRAP STYLIGN OVERRIDES AND ADDITIONS */
 
-.App-header {
-  background-color: rgb(119,36,50);
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
 .navbar-inverse {
   background-color: rgb(119,36,50);
   border-radius: 0px;
@@ -46,8 +30,6 @@ body {
 .navbar-inverse .navbar-nav>li>a {
   font-family: Gotham;
   color:#f7f7f7;
-
-  /*color: rgba(167,158,112, .8);*/
 }
 
 .navbar-inverse .navbar-nav>li>a:hover {
@@ -56,8 +38,6 @@ body {
 }
 .navbar-inverse .navbar-brand {
   color:#f7f7f7;
-
-  /*color: rgba(167,158,112, .8);*/
 }
 
 .navbar-inverse .navbar-brand:hover {
@@ -72,16 +52,10 @@ body {
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
   background-color: rgba(119,36,50, 0.1);
 
-
 }
 
 .dropdown-menu {
   background-color: #f7f7f7;
   border: 1px solid rgba(119,36,50, 0.35);
 
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }

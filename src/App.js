@@ -14,29 +14,33 @@ import { Provider } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
 import store, { history } from "./store/store";
 
-const App = () => (
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <div>
-        <Nav />
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <div>
+            <Nav />
 
-        <main>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/stats" component={Home} />
-            <Route exact path="/rules" component={Rules} />
-            <Route exact path="/trophy-room" component={TrophyRoom} />
-            <Route exact path="/stats/league" component={LeagueStats} />
-            <Route exact path="/stats/user" component={UserStats} />
-            <Route exact path="/stats/head-to-head" component={HeadToHead} />
-            <Route exact path="/draftboard" component={Draftboard} />
-            <Route path="*" component={ErrorPage} />
-          </Switch>
-          <Footer/>
-        </main>
-      </div>
-    </ConnectedRouter>
-  </Provider>
-);
+            <main>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/stats" component={Home} />
+                <Route exact path="/rules" component={Rules} />
+                <Route exact path="/trophy-room" component={TrophyRoom} />
+                <Route exact path="/stats/league" component={LeagueStats} />
+                <Route exact path="/stats/user" component={UserStats} />
+                <Route exact path="/stats/head-to-head" component={HeadToHead} />
+                <Route exact path="/draftboard" component={Draftboard} />
+                <Route path="*" component={ErrorPage} />
+              </Switch>
+              <Footer />
+            </main>
+          </div>
+        </ConnectedRouter>
+      </Provider>
+    );
+  }
+}
 
 export default App;

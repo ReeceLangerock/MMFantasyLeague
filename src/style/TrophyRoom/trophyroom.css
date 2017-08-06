@@ -16,7 +16,7 @@ margin: 5px;
 }
 
 
-.trophy-button-container {
+.trophy-span-container {
   display: flex;
   flex-direction: column;
   margin: 5px 10px 5px 5px;
@@ -39,9 +39,8 @@ hr {
     padding: 0;
 }
 
-.trophy-button-title {
+.trophy-span-title {
   font-family: Gotham;
-
   min-width: 200px;
   border:none;
   padding: 0px 24px 0px 12px;
@@ -77,7 +76,7 @@ hr {
   flex-direction: column;
 }
 
-.trophy-button {
+.trophy-span {
   min-width: 200px;
   border:none;
   padding: 0px 24px 0px 12px;
@@ -99,7 +98,7 @@ line-height: 25px;
 
 }
 
-.trophy-button:hover {
+.trophy-span:hover {
   font-weight: bold;
   box-shadow: 0 5px 10px rgba(119,36,50,0.19), 0 3px 3px rgba(119,36,50,0.23);
   color: rgb(119,36,50);
@@ -107,7 +106,7 @@ line-height: 25px;
 }
 
 @media (max-width: 1000px) {
-  .trophy-button-container {
+  .trophy-span-container {
 margin-left: 10px;
 flex-wrap: wrap;
 flex-direction: row;
@@ -138,5 +137,5 @@ width: 100%;
     .trophy-container{
       justify-content: center;
     }
-    
+
 }

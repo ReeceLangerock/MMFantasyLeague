@@ -25,6 +25,7 @@ class DataSelector extends React.Component {
   }
 
   componentWillMount() {
+    //GENERATE THE DATA NEEDED FOR THE CHART
     if (this.props.dataSelectorToRender === "user") {
       this.props.generateUserStatistics(this.props.regularOrPlayoffsSelected[0], this.props.regularOrPlayoffsSelected[1], this.props.userDataSeasonsSelected, this.props.userDataUsersSelected);
     } else {
@@ -37,6 +38,7 @@ class DataSelector extends React.Component {
     var regSelected = document.getElementById("regular").classList.contains("stat-span-active");
     var playoffsSelected = document.getElementById("playoffs").classList.contains("stat-span-active");
     this.props.setRegularOrPlayoffsSelected([regSelected, playoffsSelected]);
+    // GENERATE NEW STATISTICS REFLECTING CHOSEN REGULAR SEASON / PLAYOFF STATUS
     if (this.props.dataSelectorToRender === "user") {
       this.props.generateUserStatistics(regSelected, playoffsSelected, this.props.userDataSeasonsSelected, this.props.userDataUsersSelected);
     } else {
@@ -44,7 +46,6 @@ class DataSelector extends React.Component {
     }
   }
   handleStatSelection(e) {
-    e.preventDefault();
     var statSpans = document.getElementsByName("statSpan");
     for (let i = 0; i < statSpans.length; i++) {
       statSpans[i].classList.remove("stat-span-active");
@@ -52,15 +53,15 @@ class DataSelector extends React.Component {
     let stat = e.target.getAttribute("data-stat");
     e.target.classList.toggle("stat-span-active");
 
+    // UPDATE STORE WITH NEWLY CHOSEN STATISTIC
     if (this.props.dataSelectorToRender === "user") {
       this.props.updateUserStatistics(stat);
     } else {
       this.props.updateLeagueStatistics(stat);
     }
   }
-  handleSeasonSelection(e) {
-    e.preventDefault();
 
+  handleSeasonSelection(e) {
     var seasonSpans = document.getElementsByName("seasonSpan");
     if (this.props.dataSelectorToRender === "league") {
       for (let i = 0; i < seasonSpans.length; i++) {
@@ -76,7 +77,7 @@ class DataSelector extends React.Component {
         seasonsSelected.push(parseInt(seasonSpans[i].getAttribute("data-season"), 10));
       }
     }
-
+    // UPDATE STORE WITH SEASONS SELECTED, AND REGENERATE STATISTICS
     if (this.props.dataSelectorToRender === "user") {
       this.props.updateUserSeasons(seasonsSelected);
       this.props.generateUserStatistics(this.props.regularOrPlayoffsSelected[0], this.props.regularOrPlayoffsSelected[1], seasonsSelected, this.props.userDataUsersSelected);
@@ -97,6 +98,7 @@ class DataSelector extends React.Component {
       }
     }
 
+    // UPDATE STORE WITH SEASONS SELECTED, AND REGENERATE STATISTICS
     this.props.updateUserUsers(usersSelected);
     if (this.props.dataSelectorToRender === "user") {
       this.props.generateUserStatistics(this.props.regularOrPlayoffsSelected[0], this.props.regularOrPlayoffsSelected[1], this.props.userDataSeasonsSelected, usersSelected);
@@ -105,6 +107,7 @@ class DataSelector extends React.Component {
     }
   }
 
+  // RENDER USER 'BUTTONS' FOR ACTIVE USERS
   renderActiveUserSpans() {
     const users = lists.getUserList();
     let activeUsers = [];
@@ -152,6 +155,7 @@ class DataSelector extends React.Component {
     });
   }
 
+  // RENDER USER 'BUTTONS' FOR LEGACY USERS
   renderLegacyUserSpans() {
     const users = lists.getUserList();
     let legacyUsers = [];
@@ -198,6 +202,7 @@ class DataSelector extends React.Component {
     });
   }
 
+  //RENDER STATISTICS 'BUTTONS'
   renderStatisticsSpans() {
     let stats;
     var defaultStat;
@@ -248,7 +253,8 @@ class DataSelector extends React.Component {
       }
     });
   }
-
+  
+  //RENDER SEASON 'BUTTONS'
   renderSeasonSpans() {
     let seasons = lists.getSeasons();
 
