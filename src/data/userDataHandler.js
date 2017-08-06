@@ -667,7 +667,6 @@ module.exports = {
     }
     while (allScores.seasons[season].weeks.length < 3) {
       allScores.seasons[season].weeks.push([]);
-      console.log(allScores);
     }
 
     whatIf[user].seasons[season].ownScores.push(weekData["points-scored"]);
@@ -781,7 +780,6 @@ module.exports = {
       that.calculateWhatIf();
       that.calculateEarnings();
       that.calculateWhatIfvsActual(selectedUsers);
-      console.log(users);
       resolve({
         users,
         completed: true
