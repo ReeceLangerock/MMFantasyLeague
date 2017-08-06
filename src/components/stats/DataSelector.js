@@ -253,7 +253,7 @@ class DataSelector extends React.Component {
       }
     });
   }
-  
+
   //RENDER SEASON 'BUTTONS'
   renderSeasonSpans() {
     let seasons = lists.getSeasons();
@@ -310,15 +310,16 @@ class DataSelector extends React.Component {
     return (
       <div className="stat-selection-container">
         <div className="data-selection-container">
-          <span className="trophy-button-title">Season</span>
+          <h5>Season</h5>
 
           {this.renderSeasonSpans()}
           <hr />
 
         </div>
-        <span className="trophy-button-title">Regular and/or Playoffs</span>
+
 
         <div className="data-selection-container">
+          <h5>Regular and/or Playoffs</h5>
 
           <div className="span-col">
 
