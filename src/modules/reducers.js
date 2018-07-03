@@ -5,9 +5,9 @@ import awardData from "./../data/awardData.json";
 export var dataSelectionReducer = (
   state = {
     leagueDataStatSelected: "highestScore",
-    leagueDataSeasonSelected: 4,
+    leagueDataSeasonSelected: 5,
     userDataStatSelected: "wins",
-    userDataSeasonsSelected: [4, 3, 2, 1, 0],
+    userDataSeasonsSelected: [5,4, 3, 2, 1, 0],
     userDataUsersSelected: [
       "Ryan Coxe",
       "Kevin Dobkin",

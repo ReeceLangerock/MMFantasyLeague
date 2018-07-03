@@ -14,7 +14,6 @@ class DataSelector extends React.Component {
   handleUserSelection(e) {
     let selectionType = e.target.getAttribute("name");
     let selectedUser = e.target.getAttribute("data-user");
-    console.log(selectedUser);
 
     if (selectionType === "homeUser") {
       this.props.updateSelectedHomeUser(selectedUser);

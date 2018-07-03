@@ -50,9 +50,29 @@ var highestScore = [
         week: ""
       }
     ]
+  },
+  {
+    data: [
+      {
+        user: "",
+        opponent: "",
+        score: 0,
+        week: ""
+      }
+    ]
   }
 ];
 var lowestScore = [
+  {
+    data: [
+      {
+        user: "",
+        opponent: "",
+        score: 1000,
+        week: ""
+      }
+    ]
+  },
   {
     data: [
       {
@@ -154,9 +174,29 @@ var largestMargin = [
         week: ""
       }
     ]
+  },
+  {
+    data: [
+      {
+        user: "",
+        opponent: "",
+        margin: 0,
+        week: ""
+      }
+    ]
   }
 ];
 var smallestMargin = [
+  {
+    data: [
+      {
+        user: "",
+        opponent: "",
+        margin: 1000,
+        week: ""
+      }
+    ]
+  },
   {
     data: [
       {
@@ -258,9 +298,29 @@ var worstWins = [
         week: ""
       }
     ]
+  },
+  {
+    data: [
+      {
+        user: "",
+        opponent: "",
+        score: 1000,
+        week: ""
+      }
+    ]
   }
 ];
 var bestLosses = [
+  {
+    data: [
+      {
+        user: "",
+        opponent: "",
+        score: 0,
+        week: ""
+      }
+    ]
+  },
   {
     data: [
       {
@@ -365,6 +425,15 @@ module.exports = {
             week: ""
           }
         ]
+      },{
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 0,
+            week: ""
+          }
+        ]
       }
     ];
     lowestScore = lowestScore = [
@@ -409,6 +478,15 @@ module.exports = {
         ]
       },
       {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 1000,
+            week: ""
+          }
+        ]
+      },{
         data: [
           {
             user: "",
@@ -469,6 +547,15 @@ module.exports = {
             week: ""
           }
         ]
+      },{
+        data: [
+          {
+            user: "",
+            opponent: "",
+            margin: 0,
+            week: ""
+          }
+        ]
       }
     ];
     smallestMargin = smallestMargin = [
@@ -513,6 +600,15 @@ module.exports = {
         ]
       },
       {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            margin: 1000,
+            week: ""
+          }
+        ]
+      },{
         data: [
           {
             user: "",
@@ -573,6 +669,15 @@ module.exports = {
             week: ""
           }
         ]
+      }, {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 1000,
+            week: ""
+          }
+        ]
       }
     ];
     bestLosses = bestLosses = [
@@ -617,6 +722,15 @@ module.exports = {
         ]
       },
       {
+        data: [
+          {
+            user: "",
+            opponent: "",
+            score: 0,
+            week: ""
+          }
+        ]
+      },{
         data: [
           {
             user: "",
@@ -784,7 +898,7 @@ module.exports = {
     }
   },
 
-  run(includeRegularSeason, includePlayoffs, season = 4) {
+  run(includeRegularSeason, includePlayoffs, season = 5) {
 
     var that = this;
     that.clear();
@@ -800,7 +914,7 @@ module.exports = {
         var userName = data.users[uI].name;
         for (sI = 0; sI < data.users[uI].season.length - 1; sI++) {
           if (parseInt(season,10) === sI) {
-
+            
             if (includeRegularSeason) {
               for (rI = 0; rI < data.users[uI].season[sI][rS].length; rI++) {
                 let dataToCheck = data.users[uI].season[sI][rS][rI];
@@ -826,6 +940,7 @@ module.exports = {
           }
         }
       }
+    
       resolve({
         highestScore,
         lowestScore,

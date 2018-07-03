@@ -26,6 +26,11 @@
           "year": 2016,
           "user": "Alex Warner",
           "payout": 550
+        },
+        {
+          "year": 2017,
+          "user": "Matt Reschke",
+          "payout": 550
         }
       ]
     },
@@ -55,6 +60,10 @@
           "year": 2016,
           "user": "JD Langefeld",
           "payout": 225
+        },{
+          "year": 2017,
+          "user": "Kevin Dobkin",
+          "payout": 225
         }
       ]
     },
@@ -83,6 +92,12 @@
         {
           "year": 2016,
           "user": "Matt Reschke",
+          "payout": 150
+        }
+        ,
+        {
+          "year": 2017,
+          "user": "Sean Quill",
           "payout": 150
         }
       ]
@@ -118,6 +133,11 @@
           "user": "Matt Reschke",
           "points": 1718.4,
           "payout": 175
+        },{
+          "year": 2017,
+          "user": "Matt Reschke",
+          "points": 1725.3,
+          "payout": 175
         }
       ]
     },
@@ -151,6 +171,11 @@
           "year": 2016,
           "user": "Matt Reschke",
           "record": "9-4",
+          "payout": 275
+        },{
+          "year": 2017,
+          "user": "Sean Quill",
+          "record": "11-2",
           "payout": 275
         }
       ]
@@ -200,6 +225,10 @@
         {
           "year": 2016,
           "user": "Ryan Coxe"
+        },
+        {
+          "year": 2017,
+          "user": "Bryan Steger"
         }
       ]
     },
@@ -224,6 +253,9 @@
         {
           "year": 2016,
           "user": "Bryan Steger"
+        },{
+          "year": 2017,
+          "user": "Reece Langerock"
         }
       ]
     },
@@ -239,6 +271,11 @@
           "year": 2016,
           "user": "Matt Reschke",
           "points": 421.1,
+          "payout": 100
+        },{
+          "year": 2017,
+          "user": "Matt Reschke",
+          "points": 409.6,
           "payout": 100
         }
       ]
@@ -350,6 +387,60 @@
               "user-name": "Alex Warner",
               "wins": 2,
               "total-payout": 50
+            }
+          ]
+        },
+        {
+          "year": 2017,
+          "users": [
+            {
+              "user-name": "Ryan Coxe",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Kevin Dobkin",
+              "wins": 2,
+              "total-payout": 50
+            },{
+              "user-name": "Jason Knaak",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "JD Langefeld",
+              "wins": 1,
+              "total-payout": 25
+            },{
+              "user-name": "Reece Langerock",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Jimmy Ouska",
+              "wins": 1,
+              "total-payout": 25
+            },{
+              "user-name": "Sean Quill",
+              "wins": 1,
+              "total-payout": 25
+            },{
+              "user-name": "Matt Reschke",
+              "wins": 6,
+              "total-payout": 150
+            },{
+              "user-name": "Bryan Steger",
+              "wins": 0,
+              "total-payout": 0
+            },{
+              "user-name": "Mike Unverricht",
+              "wins": 1,
+              "total-payout": 25
+            },{
+              "user-name": "Trey Ward",
+              "wins": 1,
+              "total-payout": 25
+            },{
+              "user-name": "Alex Warner",
+              "wins": 0,
+              "total-payout": 0
             }
           ]
         }

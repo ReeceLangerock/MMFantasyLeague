@@ -1706,7 +1706,7 @@ module.exports = {
   run(
     includeRegularSeason,
     includePlayoffs,
-    seasons = [0, 1, 2, 3, 4],
+    seasons = [0, 1, 2, 3, 4,5],
     selectedUsers = [
       "Ryan Coxe",
       "Kevin Dobkin",

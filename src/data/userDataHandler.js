@@ -1,6 +1,6 @@
 const data = require("./data.json");
 const awardData = require("./awardData.json");
-const NUM_SEASONS = 5;
+const NUM_SEASONS = 6;
 
 var allScores = {
   seasons: [{ weeks: [] }]
@@ -105,7 +105,8 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
-      "buy-in": 600,
+      net: 0,
+      "buy-in": 800,
       "total-points-scored": 0,
       "total-points-allowed": 0,
       "high-score": 0,
@@ -119,7 +120,8 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
-      "buy-in": 600,
+      net: 0,
+      "buy-in": 800,
       "total-points-scored": 0,
       "total-points-allowed": 0,
       "high-score": 0,
@@ -133,7 +135,8 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
-      "buy-in": 600,
+      net: 0,
+      "buy-in": 800,
       "total-points-scored": 0,
       "total-points-allowed": 0,
       "high-score": 0,
@@ -147,7 +150,8 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
-      "buy-in": 600,
+      net: 0,
+      "buy-in": 800,
       "total-points-scored": 0,
       "total-points-allowed": 0,
       "high-score": 0,
@@ -161,7 +165,8 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
-      "buy-in": 600,
+      net: 0,
+      "buy-in": 800,
       "total-points-scored": 0,
       "total-points-allowed": 0,
       "high-score": 0,
@@ -175,6 +180,7 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
+      net: 0,
       "buy-in": 100,
       "total-points-scored": 0,
       "total-points-allowed": 0,
@@ -189,7 +195,8 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
-      "buy-in": 600,
+      net: 0,
+      "buy-in": 800,
       "total-points-scored": 0,
       "total-points-allowed": 0,
       "high-score": 0,
@@ -203,7 +210,8 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
-      "buy-in": 600,
+      net: 0,
+      "buy-in": 700,
       "total-points-scored": 0,
       "total-points-allowed": 0,
       "high-score": 0,
@@ -217,7 +225,8 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
-      "buy-in": 600,
+      net: 0,
+      "buy-in": 800,
       "total-points-scored": 0,
       "total-points-allowed": 0,
       "high-score": 0,
@@ -231,7 +240,8 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
-      "buy-in": 600,
+      net: 0,
+      "buy-in": 800,
       "total-points-scored": 0,
       "total-points-allowed": 0,
       "high-score": 0,
@@ -245,7 +255,8 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
-      "buy-in": 600,
+      net: 0,
+      "buy-in": 800,
       "total-points-scored": 0,
       "total-points-allowed": 0,
       "high-score": 0,
@@ -259,7 +270,8 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
-      "buy-in": 600,
+      net: 0,
+      "buy-in": 800,
       "total-points-scored": 0,
       "total-points-allowed": 0,
       "high-score": 0,
@@ -273,7 +285,8 @@ var users = {
       wins: 0,
       losses: 0,
       earnings: 0,
-      "buy-in": 600,
+      net: 0,
+      "buy-in": 800,
       "total-points-scored": 0,
       "total-points-allowed": 0,
       "average-points-scored": 0,
@@ -391,7 +404,8 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
-          "buy-in": 600,
+          net: 0,
+          "buy-in": 800,
           "total-points-scored": 0,
           "total-points-allowed": 0,
           "high-score": 0,
@@ -405,7 +419,8 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
-          "buy-in": 600,
+          net: 0,
+          "buy-in": 800,
           "total-points-scored": 0,
           "total-points-allowed": 0,
           "high-score": 0,
@@ -419,7 +434,8 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
-          "buy-in": 600,
+          net: 0,
+          "buy-in": 800,
           "total-points-scored": 0,
           "total-points-allowed": 0,
           "high-score": 0,
@@ -433,7 +449,8 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
-          "buy-in": 600,
+          net: 0,
+          "buy-in": 800,
           "total-points-scored": 0,
           "total-points-allowed": 0,
           "high-score": 0,
@@ -447,7 +464,8 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
-          "buy-in": 600,
+          net: 0,
+          "buy-in": 800,
           "total-points-scored": 0,
           "total-points-allowed": 0,
           "high-score": 0,
@@ -461,6 +479,7 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
+          net: 0,
           "buy-in": 100,
           "total-points-scored": 0,
           "total-points-allowed": 0,
@@ -475,7 +494,8 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
-          "buy-in": 600,
+          net: 0,
+          "buy-in": 800,
           "total-points-scored": 0,
           "total-points-allowed": 0,
           "high-score": 0,
@@ -489,7 +509,8 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
-          "buy-in": 600,
+          net: 0,
+          "buy-in": 700,
           "total-points-scored": 0,
           "total-points-allowed": 0,
           "high-score": 0,
@@ -503,7 +524,8 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
-          "buy-in": 600,
+          net: 0,
+          "buy-in": 800,
           "total-points-scored": 0,
           "total-points-allowed": 0,
           "high-score": 0,
@@ -517,7 +539,8 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
-          "buy-in": 600,
+          net: 0,
+          "buy-in": 800,
           "total-points-scored": 0,
           "total-points-allowed": 0,
           "high-score": 0,
@@ -531,7 +554,8 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
-          "buy-in": 600,
+          net: 0,
+          "buy-in": 800,
           "total-points-scored": 0,
           "total-points-allowed": 0,
           "high-score": 0,
@@ -545,7 +569,8 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
-          "buy-in": 600,
+          net: 0,
+          "buy-in": 800,
           "total-points-scored": 0,
           "total-points-allowed": 0,
           "high-score": 0,
@@ -559,7 +584,8 @@ module.exports = {
           wins: 0,
           losses: 0,
           earnings: 0,
-          "buy-in": 600,
+          net: 0,
+          "buy-in": 800,
           "total-points-scored": 0,
           "total-points-allowed": 0,
           "average-points-scored": 0,
@@ -625,7 +651,7 @@ module.exports = {
   calculateWinPercentage(user) {
     var games = users.users[user]["wins"] + users.users[user]["losses"];
 
-    var winPercentage = users.users[user]["wins"] / games * 100;
+    var winPercentage = (users.users[user]["wins"] / games) * 100;
     winPercentage = winPercentage.toPrecision(4);
     winPercentage = isNaN(parseFloat(winPercentage)) ? 0 : winPercentage;
 
@@ -678,14 +704,20 @@ module.exports = {
       allScores.seasons[season].weeks.push([]);
     }
 
-    allScores.seasons[season].weeks[weekData["week-number"] - 1].push(weekData["points-scored"]);
+    allScores.seasons[season].weeks[weekData["week-number"] - 1].push(
+      weekData["points-scored"]
+    );
   },
   calculateWhatIf() {
     Object.keys(whatIf).map(user => {
       whatIf[user].seasons.map((season, seasonIndex) => {
         season.ownScores.map((score, scoreIndex) => {
           if (allScores.seasons[seasonIndex].weeks[scoreIndex]) {
-            for (let i = 0; i < allScores.seasons[seasonIndex].weeks[scoreIndex].length; i++) {
+            for (
+              let i = 0;
+              i < allScores.seasons[seasonIndex].weeks[scoreIndex].length;
+              i++
+            ) {
               if (allScores.seasons[seasonIndex].weeks[scoreIndex][i] > score) {
                 users.users[user]["what-if-losses"]++;
               } else {
@@ -699,10 +731,13 @@ module.exports = {
   },
   calculateWhatIfvsActual(selectedUsers) {
     selectedUsers.map(user => {
-      var whatIfGames = users.users[user]["what-if-wins"] + users.users[user]["what-if-losses"];
-      var whatIfWinPercentage = users.users[user]["what-if-wins"] / whatIfGames * 100;
+      var whatIfGames =
+        users.users[user]["what-if-wins"] + users.users[user]["what-if-losses"];
+      var whatIfWinPercentage =
+        (users.users[user]["what-if-wins"] / whatIfGames) * 100;
 
-      var whatIfVsActual = users.users[user]["win-percentage"] - whatIfWinPercentage;
+      var whatIfVsActual =
+        users.users[user]["win-percentage"] - whatIfWinPercentage;
       whatIfVsActual = whatIfVsActual.toPrecision(4);
 
       whatIfVsActual = isNaN(parseFloat(whatIfVsActual)) ? 0 : whatIfVsActual;
@@ -713,7 +748,7 @@ module.exports = {
   run(
     includeRegularSeason,
     includePlayoffs,
-    seasons = [0, 1, 2, 3, 4],
+    seasons = [0, 1, 2, 3, 4, 5],
     selectedUsers = [
       "Ryan Coxe",
       "Kevin Dobkin",
@@ -749,11 +784,19 @@ module.exports = {
                 for (rI = 0; rI < data.users[uI].season[sI][rS].length; rI++) {
                   let dataToCheck = data.users[uI].season[sI][rS][rI];
 
-                  if (dataToCheck.opponent !== "Bye" && dataToCheck.opponent !== "") {
+                  if (
+                    dataToCheck.opponent !== "Bye" &&
+                    dataToCheck.opponent !== ""
+                  ) {
                     that.calculateHighScores(dataToCheck, sI, userName, "R");
                     that.calculateLowScores(dataToCheck, sI, userName, "R");
                     that.calculateWinsAndLosses(dataToCheck, sI, userName, "R");
-                    that.calculateTotalPointsForAndAgainst(dataToCheck, sI, userName, "R");
+                    that.calculateTotalPointsForAndAgainst(
+                      dataToCheck,
+                      sI,
+                      userName,
+                      "R"
+                    );
                     that.populateWhatIf(dataToCheck, sI, userName, "R");
                   }
                 }
@@ -761,11 +804,19 @@ module.exports = {
               if (includePlayoffs) {
                 for (pI = 0; pI < data.users[uI].season[sI][pS].length; pI++) {
                   let dataToCheck = data.users[uI].season[sI][pS][pI];
-                  if (dataToCheck.opponent !== "Bye" && dataToCheck.opponent !== "") {
+                  if (
+                    dataToCheck.opponent !== "Bye" &&
+                    dataToCheck.opponent !== ""
+                  ) {
                     that.calculateHighScores(dataToCheck, sI, userName, "P");
                     that.calculateLowScores(dataToCheck, sI, userName, "P");
                     that.calculateWinsAndLosses(dataToCheck, sI, userName, "P");
-                    that.calculateTotalPointsForAndAgainst(dataToCheck, sI, userName, "P");
+                    that.calculateTotalPointsForAndAgainst(
+                      dataToCheck,
+                      sI,
+                      userName,
+                      "P"
+                    );
                     that.populateWhatIf(dataToCheck, sI, userName, "P");
                   }
                 }
