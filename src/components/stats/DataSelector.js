@@ -72,11 +72,14 @@ class DataSelector extends React.Component {
     e.target.classList.toggle("stat-span-active");
 
     var seasonsSelected = [];
+
     for (let i = 0; i < seasonSpans.length; i++) {
       if (seasonSpans[i].classList.contains("stat-span-active")) {
         seasonsSelected.push(parseInt(seasonSpans[i].getAttribute("data-season"), 10));
       }
+
     }
+
     // UPDATE STORE WITH SEASONS SELECTED, AND REGENERATE STATISTICS
     if (this.props.dataSelectorToRender === "user") {
       this.props.updateUserSeasons(seasonsSelected);
@@ -103,6 +106,7 @@ class DataSelector extends React.Component {
     if (this.props.dataSelectorToRender === "user") {
       this.props.generateUserStatistics(this.props.regularOrPlayoffsSelected[0], this.props.regularOrPlayoffsSelected[1], this.props.userDataSeasonsSelected, usersSelected);
     } else {
+
       this.props.generateLeagueStatistics(this.props.regularOrPlayoffsSelected[0], this.props.regularOrPlayoffsSelected[1], this.props.leagueDataSeasonSelected);
     }
   }

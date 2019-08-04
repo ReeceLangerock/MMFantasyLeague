@@ -1688,12 +1688,17 @@ module.exports = {
       }
     };
   },
-  
+
   calculateHeadToHead(weekData, season, user, regularOrPlayoffs) {
     if (headToHead[user].opponents[weekData.opponent]) {
-
-      headToHead[user].opponents[weekData.opponent]["points-scored-array"].push({ score: weekData["points-scored"], date: `Week ${weekData['week-number']}, ${season + 2012}` });
-      headToHead[user].opponents[weekData.opponent]["points-allowed-array"].push({ score: weekData["points-allowed"], date: `Week ${weekData['week-number']}, ${season + 2012}` });
+      headToHead[user].opponents[weekData.opponent]["points-scored-array"].push({
+        score: weekData["points-scored"],
+        date: `Week ${weekData["week-number"]}, ${season + 2012}`
+      });
+      headToHead[user].opponents[weekData.opponent]["points-allowed-array"].push({
+        score: weekData["points-allowed"],
+        date: `Week ${weekData["week-number"]}, ${season + 2012}`
+      });
 
       if (weekData["points-scored"] > weekData["points-allowed"]) {
         headToHead[user].opponents[weekData.opponent].wins++;
@@ -1706,7 +1711,7 @@ module.exports = {
   run(
     includeRegularSeason,
     includePlayoffs,
-    seasons = [0, 1, 2, 3, 4,5],
+    seasons = [0, 1, 2, 3, 4, 5, 6],
     selectedUsers = [
       "Ryan Coxe",
       "Kevin Dobkin",
@@ -1736,7 +1741,7 @@ module.exports = {
         var userName = data.users[uI].name;
 
         if (selectedUsers.includes(userName)) {
-          for (sI = 0; sI < data.users[uI].season.length - 1; sI++) {
+          for (sI = 0; sI < data.users[uI].season.length; sI++) {
             if (seasons.includes(sI)) {
               if (includeRegularSeason) {
                 for (rI = 0; rI < data.users[uI].season[sI][rS].length; rI++) {

@@ -1,6 +1,6 @@
 const data = require("./data.json");
 const awardData = require("./awardData.json");
-const NUM_SEASONS = 6;
+const NUM_SEASONS = 7;
 
 var allScores = {
   seasons: [{ weeks: [] }]
@@ -748,7 +748,7 @@ module.exports = {
   run(
     includeRegularSeason,
     includePlayoffs,
-    seasons = [0, 1, 2, 3, 4, 5],
+    seasons = [0, 1, 2, 3, 4, 5,6],
     selectedUsers = [
       "Ryan Coxe",
       "Kevin Dobkin",
@@ -778,7 +778,7 @@ module.exports = {
         var userName = data.users[uI].name;
 
         if (selectedUsers.includes(userName)) {
-          for (sI = 0; sI < data.users[uI].season.length - 1; sI++) {
+          for (sI = 0; sI < data.users[uI].season.length; sI++) {
             if (seasons.includes(sI)) {
               if (includeRegularSeason) {
                 for (rI = 0; rI < data.users[uI].season[sI][rS].length; rI++) {

@@ -7,7 +7,7 @@ import lists from "./../../data/lists.js";
 class BarChart extends Component {
   calculateLeagueDate() {
     var statToRender = this.props.leagueDataStatSelected;
-    var season = this.props.leagueDataSeasonSelected;
+    var season = this.props.leagueDataSeasonSelected; 
     var data = this.props.leagueData;
     var xLabel = "";
     lists.getLeagueStatList().map(stat => {
@@ -23,8 +23,9 @@ class BarChart extends Component {
     if (data.completed) {
       Object.keys(data).map(stat => {
         if (stat === statToRender) {
+          
           for (let j = 0; j < data[stat][season].data.length; j++) {
-            if (data[stat][season].data[j].score) {
+              if (data[stat][season].data[j].score) {
               var dataPoint = data[stat][season].data[j];
               //saved for if i figure out multiple labels
               // label: `${dataPoint.regularOrPlayoffs}, Week ${dataPoint.week}\nOpponent: ${dataPoint.opponent}` }
@@ -130,6 +131,7 @@ class BarChart extends Component {
           x="x"
           y="y"
           labels={d => {
+            d.y = d.y ? d.y : 0
             if (Number.isInteger(d.y)) {
               return `${d.y}`;
             } else {

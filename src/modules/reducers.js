@@ -4,10 +4,10 @@ import awardData from "./../data/awardData.json";
 //----------------
 export var dataSelectionReducer = (
   state = {
-    leagueDataStatSelected: "highestScore",
-    leagueDataSeasonSelected: 5,
+    leagueDataStatSelected: "lowestScore",
+    leagueDataSeasonSelected: 6,
     userDataStatSelected: "wins",
-    userDataSeasonsSelected: [5,4, 3, 2, 1, 0],
+    userDataSeasonsSelected: [6, 5, 4, 3, 2, 1, 0],
     userDataUsersSelected: [
       "Ryan Coxe",
       "Kevin Dobkin",
@@ -54,7 +54,10 @@ export var awardDataReducer = (state = { awardData, trophy: "Champion" }, action
   }
 };
 
-export var seasonStatsGenerationReducer = (state = { isGenerating: false, neitherRegularOrPlayoff: false, data: {} }, action) => {
+export var seasonStatsGenerationReducer = (
+  state = { isGenerating: false, neitherRegularOrPlayoff: false, data: {} },
+  action
+) => {
   switch (action.type) {
     case "TOGGLE_ISGENERATING_LEAGUE_STATISTICS":
       return { ...state, isGenerating: !state.isGenerating };
@@ -67,7 +70,10 @@ export var seasonStatsGenerationReducer = (state = { isGenerating: false, neithe
   }
 };
 
-export var h2hDataReducer = (state = { homeUser: "Ryan Coxe", awayUser: "Kevin Dobkin" }, action) => {
+export var h2hDataReducer = (
+  state = { homeUser: "Ryan Coxe", awayUser: "Kevin Dobkin" },
+  action
+) => {
   switch (action.type) {
     case "UPDATE_SELECTED_HOME_USER":
       return { ...state, homeUser: action.homeUser };

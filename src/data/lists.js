@@ -1,4 +1,4 @@
-const SEASONS = [{ season: 2017, id: 5 },{ season: 2016, id: 4 }, { season: 2015, id: 3 }, { season: 2014, id: 2 }, { season: 2013, id: 1 }, { season: 2012, id: 0 }];
+const SEASONS = [{ season: 2018, id: 6 }, { season: 2017, id: 5 },{ season: 2016, id: 4 }, { season: 2015, id: 3 }, { season: 2014, id: 2 }, { season: 2013, id: 1 }, { season: 2012, id: 0 }];
 
 const USER_LIST = [
   {
